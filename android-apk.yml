@@ -1,4 +1,5 @@
-name: Build Shearing France Android APK
+
+name: Build Shearing France APK
 
 on:
   push:
@@ -10,44 +11,54 @@ permissions:
 
 jobs:
   build:
-    name: Build debug APK
+    name: Construire APK Android
     runs-on: ubuntu-latest
+
+    env:
+      ANDROID_HOME: /usr/local/lib/android/sdk
+      ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+
     steps:
-      - name: Checkout source
+      - name: Recuperer le projet
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Installer Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
-      - name: Set up Java
+      - name: Installer Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 21
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+      - name: Installer les composants Android
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" \
+            "platform-tools" \
+            "platforms;android-35" \
+            "build-tools;35.0.0"
 
-      - name: Install JavaScript dependencies
+      - name: Installer les dependances
         run: npm install
 
-      - name: Generate native Android project
+      - name: Ajouter Android
         run: npx cap add android
 
-      - name: Sync web app into Android project
+      - name: Synchroniser Capacitor
         run: npx cap sync android
 
-      - name: Build APK
-        working-directory: android
-        run: ./gradlew assembleDebug
+      - name: Compiler APK
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
 
-      - name: Upload APK
+      - name: Publier le fichier APK
         uses: actions/upload-artifact@v4
         with:
           name: Shearing-France-APK
           path: android/app/build/outputs/apk/debug/app-debug.apk
-          if-no-files-found: error
-          retention-days: 30
+          
