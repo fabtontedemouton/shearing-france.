@@ -1,0 +1,18 @@
+{
+  "name": "shearing-france-android",
+  "version": "6.1.0",
+  "private": true,
+  "description": "Application Android Shearing France",
+  "scripts": {
+    "android": "npx cap open android",
+    "sync": "npx cap sync android",
+    "build:android": "npx cap sync android && cd android && ./gradlew assembleDebug"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/core": "^7.4.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.4.3"
+  }
+}

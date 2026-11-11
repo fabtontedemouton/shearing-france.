@@ -1,0 +1,2 @@
+Shearing France V6.3
+Import photo OCR avec fusion intelligente des concours et résultats existants. Ajout des informations manquantes sans écraser les données déjà enregistrées.

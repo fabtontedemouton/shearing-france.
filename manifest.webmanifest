@@ -1,0 +1,18 @@
+{
+  "name": "Shearing France",
+  "short_name": "Shearing France",
+  "description": "Compétitions, résultats et formations de tonte ovine",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f2f3ed",
+  "theme_color": "#244638",
+  "icons": [
+    {
+      "src": "shearing-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
