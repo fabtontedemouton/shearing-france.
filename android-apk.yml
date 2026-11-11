@@ -1,9 +1,12 @@
 
-name: Build Shearing France APK
+name: Creer un APK Android
 
 on:
   push:
-    branches: [main, master]
+    branches:
+      - principal
+      - main
+      - master
   workflow_dispatch:
 
 permissions:
@@ -11,12 +14,8 @@ permissions:
 
 jobs:
   build:
-    name: Construire APK Android
+    name: Construire Shearing France
     runs-on: ubuntu-latest
-
-    env:
-      ANDROID_HOME: /usr/local/lib/android/sdk
-      ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
 
     steps:
       - name: Recuperer le projet
@@ -33,13 +32,22 @@ jobs:
           distribution: temurin
           java-version: 21
 
+      - name: Verifier le SDK Android
+        run: |
+          echo "SDK Android : $ANDROID_HOME"
+          ls "$ANDROID_HOME"
+
       - name: Installer les composants Android
         run: |
-          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses || true
-          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" \
-            "platform-tools" \
-            "platforms;android-35" \
-            "build-tools;35.0.0"
+          SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          yes | "$SDKMANAGER" --licenses || true
+          "$SDKMANAGER" "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Verifier les fichiers du projet
+        run: |
+          test -f package.json
+          test -f capacitor.config.json
+          test -d www
 
       - name: Installer les dependances
         run: npm install
@@ -56,9 +64,10 @@ jobs:
           chmod +x gradlew
           ./gradlew assembleDebug
 
-      - name: Publier le fichier APK
+      - name: Publier APK
         uses: actions/upload-artifact@v4
         with:
           name: Shearing-France-APK
           path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
           
