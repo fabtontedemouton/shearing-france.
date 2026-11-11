@@ -1,5 +1,5 @@
 
-name: Shearing France - Build APK
+name: Creer un APK Android
 
 on:
   push:
@@ -14,18 +14,17 @@ permissions:
 
 jobs:
   build:
-    name: Construire APK Android
+    name: Construire Shearing France
     runs-on: ubuntu-latest
 
     steps:
-      - name: Recuperer les fichiers
+      - name: Recuperer le projet
         uses: actions/checkout@v4
 
       - name: Installer Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
       - name: Installer Java
         uses: actions/setup-java@v4
@@ -35,26 +34,20 @@ jobs:
 
       - name: Verifier le SDK Android
         run: |
-          echo "ANDROID_HOME=$ANDROID_HOME"
-          echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT"
-          ls -la "$ANDROID_HOME"
-          ls -la "$ANDROID_HOME/cmdline-tools"
+          echo "SDK Android : $ANDROID_HOME"
+          ls "$ANDROID_HOME"
 
       - name: Installer les composants Android
         run: |
-          SDKMANAGER=$(find "$ANDROID_HOME/cmdline-tools" -name sdkmanager -type f | head -n 1)
-          if [ -z "$SDKMANAGER" ]; then
-            echo "sdkmanager introuvable"
-            exit 1
-          fi
+          SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
           yes | "$SDKMANAGER" --licenses || true
           "$SDKMANAGER" "platform-tools" "platforms;android-35" "build-tools;35.0.0"
 
-      - name: Verifier le projet
+      - name: Verifier les fichiers du projet
         run: |
-          test -f package.json || (echo "package.json manquant à la racine" && exit 1)
-          test -f capacitor.config.json || (echo "capacitor.config.json manquant" && exit 1)
-          test -d www || (echo "Dossier www manquant" && exit 1)
+          test -f package.json
+          test -f capacitor.config.json
+          test -d www
 
       - name: Installer les dependances
         run: npm install
@@ -71,7 +64,7 @@ jobs:
           chmod +x gradlew
           ./gradlew assembleDebug
 
-      - name: Recuperer APK
+      - name: Publier APK
         uses: actions/upload-artifact@v4
         with:
           name: Shearing-France-APK
