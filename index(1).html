@@ -1,0 +1,1384 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#234536">
+<meta name="description" content="Shearing France — compétitions, résultats, archives et formations de tonte ovine.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="shearing-logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="shearing-logo.svg">
+<title>Shearing France — Version 6.2</title>
+<style>
+:root{--navy:#050505;--navy2:#111;--gold:#d7ad54;--cream:#f5f2eb;--ink:#f4f0e8;--muted:#aaa;--line:#292929;--green:#16845b;--red:#c44747}
+*{box-sizing:border-box}body{margin:0;background:#050505;color:var(--ink);font:15px/1.45 Inter,system-ui,Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.shell{max-width:1180px;margin:auto;padding:18px}.hero{background:linear-gradient(120deg,#101a30,#263b5c);color:white;border-radius:20px;padding:24px;display:flex;justify-content:space-between;gap:20px;align-items:center}.brand{display:flex;align-items:center;gap:12px}.logo{background:var(--gold);color:#172238;border-radius:12px;padding:12px;font-size:25px}.eyebrow{letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:#c8d1df}.hero h1{margin:3px 0;font-size:clamp(25px,4vw,38px)}.hero p{margin:4px 0;color:#d4dcea}.stats{display:flex;gap:10px;flex-wrap:wrap}.stat{background:#ffffff13;border:1px solid #ffffff22;padding:12px 16px;border-radius:12px;min-width:100px}.stat b{display:block;font-size:25px;color:#f0cc86}.stat span{font-size:12px;color:#d5deeb}.nav{display:flex;gap:7px;overflow:auto;padding:14px 0}.nav button{border:1px solid #252525;background:#101010;color:#ddd;border-radius:10px;padding:10px 15px;white-space:nowrap;font-weight:650}.nav button.active{background:#d7ad54;color:#080808}.layout{display:grid;grid-template-columns:1fr 320px;gap:16px}.panel,.card{background:#101010;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 3px 12px #17223808}.panel h2,.card h3{margin:0 0 12px}.muted{color:var(--muted)}.small{font-size:12px}.tag{display:inline-block;padding:4px 8px;border-radius:30px;background:#edf1f6;color:#46546a;font-size:11px;font-weight:700}.tag.green{background:#e4f5ed;color:#14744f}.tag.gold{background:#f8f0df;color:#8b6423}.tag.red{background:#fdeaea;color:#a43636}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.row{display:flex;align-items:center;justify-content:space-between;gap:10px}.btn{border:0;border-radius:10px;background:var(--navy);color:white;padding:10px 14px;font-weight:700}.btn.gold{background:var(--gold);color:#172238}.btn.ghost{background:#eef1f5;color:#27364e}.btn.danger{background:#a93636}.field{display:grid;gap:5px;margin:10px 0}.field label{font-size:12px;font-weight:750;color:#526176}.field input,.field select,.field textarea{width:100%;padding:10px;border:1px solid #333;border-radius:9px;background:#080808;color:var(--ink)}.field textarea{min-height:80px}.list{display:grid;gap:8px}.item{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}.rank{width:28px;height:28px;border-radius:8px;background:#eef1f5;display:grid;place-items:center;font-weight:800}.grow{flex:1;min-width:0}.grow b{display:block}.rating{font-size:20px;font-weight:900;color:#9b742e}.bar{height:8px;background:#edf0f4;border-radius:10px;overflow:hidden}.bar i{display:block;height:100%;background:var(--gold);border-radius:10px}.hidden{display:none!important}.metric{display:grid;grid-template-columns:1fr 42px;gap:8px;align-items:center;margin:12px 0}.metric .bar{grid-column:1/3}.event{border:1px solid var(--line);border-radius:13px;padding:14px}.event h3{margin:7px 0}.table{width:100%;border-collapse:collapse}.table th,.table td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);font-size:13px}.table th{color:#66758b;font-size:11px;text-transform:uppercase}.notice{padding:11px;border-radius:10px;background:#fff6e6;color:#78551c;font-size:12px}.success{padding:11px;border-radius:10px;background:#e8f7ef;color:#176846;font-size:13px}.footer{text-align:center;color:#8a95a5;font-size:11px;padding:25px}.photo-preview{max-width:100%;max-height:220px;border-radius:10px;display:block;margin:10px 0}.pill{border:1px solid var(--line);border-radius:20px;padding:5px 9px;font-size:11px}
+@media(max-width:800px){.layout{grid-template-columns:1fr}.hero{display:block}.stats{margin-top:18px}.grid{grid-template-columns:1fr}.shell{padding:12px}}
+
+
+
+.sf-dashboard{display:grid;grid-template-columns:205px minmax(300px,1.05fr) minmax(330px,1fr);gap:0;background:#050505;border:1px solid #242424;border-radius:16px;overflow:hidden;min-height:790px}
+.sf-side{padding:22px 12px;background:#080808;border-right:1px solid #242424}
+.sf-side-title{font-weight:900;color:#e0b65c;font-size:19px;padding:10px 8px 24px}
+.sf-side-item{display:flex;align-items:center;gap:13px;width:100%;padding:15px 12px;background:transparent;border:0;border-bottom:1px solid #202020;color:#eee;text-align:left;font-weight:650}
+.sf-side-item span{font-size:14px}.sf-side-item.active,.sf-side-item:hover{background:linear-gradient(90deg,#d9ad50,#16110a);color:#080808;border-radius:8px}
+.sf-medals{background:#090909df;border:1px solid #3b3323;border-radius:12px;padding:12px;margin-bottom:12px;backdrop-filter:blur(4px)}
+.sf-medal-title{font-weight:900;color:#e0b65c;font-size:12px;letter-spacing:.1em;margin-bottom:8px}
+.sf-medal-list{display:flex;gap:8px;flex-wrap:wrap}
+.medal{display:flex;flex-direction:column;align-items:center;min-width:76px;padding:7px 8px;background:#171717;border:1px solid #514326;border-radius:8px;color:#fff}
+.medal b{font-size:25px}.medal span{font-size:12px;font-weight:800}.medal small{font-size:9px;color:#bbb;text-align:center}
+.sf-disclaimer{font-size:9px;color:#aaa;margin:8px 0 0}
+.sf-custom-panel{padding:23px;background:#090909;color:#f5f2eb;border-left:1px solid #252525}
+.sf-panel-head,.sf-identity,.sf-editor-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.sf-kicker{font-size:10px;letter-spacing:.15em;color:#c6a35d;font-weight:800}
+.sf-panel-head h2{margin:5px 0 15px;font-size:25px}
+.sf-gen{font-size:34px;font-weight:950;color:#e7bd65;text-align:center}.sf-gen small{display:block;font-size:10px}
+.sf-identity{padding:15px 0;border-top:1px solid #292929;border-bottom:1px solid #292929}
+.sf-identity h2{margin:0 0 3px;font-size:22px}.sf-identity span{font-size:12px;color:#aaa}
+.sf-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:14px 0}
+.sf-stats div{background:#141414;border:1px solid #292929;border-radius:9px;padding:10px 5px;text-align:center}
+.sf-stats b{display:block;color:#e5bb68;font-size:21px}.sf-stats span{font-size:10px;color:#aaa}
+.sf-content-panel{background:#101010;border:1px solid #292929;border-radius:12px;padding:15px}
+.sf-content-panel h3{margin:0 0 13px;color:#e6bd6b;font-size:15px}
+.sf-metric{display:grid;grid-template-columns:1fr 28px;gap:8px;align-items:center;margin:12px 0;font-size:12px}
+.sf-metric b{text-align:right;color:#fff}.sf-metric i{grid-column:1/3;height:7px;background:#292929;border-radius:9px;overflow:hidden}.sf-metric em{display:block;height:100%;background:linear-gradient(90deg,#a8792d,#f1d17b);border-radius:9px}
+.sf-subhead{margin-top:24px!important}.sf-result-row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid #292929;font-size:11px}.sf-result-row b{color:#d7b66f}
+.sf-panel-footer{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.sf-gold-button,.sf-dark-button{flex:1}
+.sf-editor{margin-top:16px;background:#090909;border:1px solid #34302a;border-radius:14px;padding:18px;color:#eee}
+.sf-editor-grid{display:grid;grid-template-columns:minmax(220px,.75fr) 1.25fr;gap:18px;margin-top:15px}
+.sf-editor-preview{background:#000;border:1px solid #333;border-radius:10px;overflow:hidden;text-align:center}
+.sf-editor-preview img{width:100%;height:460px;object-fit:contain;object-position:center bottom}.sf-editor-preview p{font-size:10px;letter-spacing:.12em;color:#d5b66d}
+.sf-editor-choices{display:grid;gap:12px}.sf-choice-group{border:1px solid #292929;background:#111;border-radius:10px;padding:12px}
+.sf-choice-group h3{margin:0 0 9px;color:#e2b95e;font-size:14px}
+.sf-face-grid,.sf-choice-chips{display:flex;gap:8px;flex-wrap:wrap}
+.sf-face-grid button,.sf-choice-chips button{background:#080808;border:1px solid #454545;color:#eee;padding:10px 12px;border-radius:8px}
+.sf-face-grid button:focus,.sf-choice-chips button:focus{border-color:#e5bd68;color:#e5bd68}
+.sf-editor-note{color:#aaa;font-size:11px}
+
+/* V1.5 — menu principal horizontal */
+.sf-dashboard{grid-template-columns:minmax(0,1fr) minmax(340px,1fr);grid-template-rows:auto 1fr;min-height:0}
+.sf-side{grid-column:1/-1;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:7px;padding:14px;border-right:0;border-bottom:1px solid #292929;align-items:stretch}
+.sf-side-title{grid-column:1/-1;padding:2px 4px 5px;font-size:17px}
+.sf-side-item{min-height:66px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;padding:8px 5px;text-align:center;border:1px solid #292929;border-radius:9px;background:#101010;font-size:21px}
+.sf-side-item span{font-size:11px;line-height:1.2}
+.sf-side-item.active,.sf-side-item:hover{background:linear-gradient(180deg,#e4bd6c,#9e7026);color:#090909;border-color:#e4bd6c}
+.sf-custom-panel{border-left:1px solid #252525}
+@media(max-width:1050px){
+ .sf-dashboard{grid-template-columns:minmax(0,1fr) minmax(300px,1fr)}
+ .sf-side{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .sf-custom-panel{grid-column:auto}
+}
+@media(max-width:650px){
+ .sf-dashboard{grid-template-columns:1fr;grid-template-rows:auto auto auto}
+ .sf-side{grid-template-columns:repeat(2,minmax(0,1fr));padding:10px}
+ .sf-side-title{grid-column:1/-1}
+ .sf-side-item{min-height:58px;flex-direction:row;justify-content:flex-start;padding:8px 10px;text-align:left}
+ .sf-side-item span{font-size:12px}
+ .sf-custom-panel{grid-column:1}
+}
+
+
+.sf-choice-chips{margin:6px 0 9px}
+.sf-choice-chips button{cursor:pointer;transition:.15s}
+.sf-choice-chips button.selected{background:linear-gradient(100deg,#e7c36f,#b98532);color:#080808;border-color:#f2d78d;font-weight:900}
+.sf-editor-label{display:block;color:#aaa;font-size:11px;margin:9px 0 5px}
+.sf-editor-input{width:100%;background:#080808;color:#f4f0e8;border:1px solid #444;border-radius:8px;padding:10px}
+.sf-selection-summary{font-size:12px;color:#ddd;line-height:1.8;min-height:40px}
+.sf-editor-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.sf-editor-actions button{cursor:pointer}
+
+
+/* V2.6 — interface sans avatar */
+.sf-3d-controls{position:absolute;top:12px;right:12px;display:flex;gap:6px;z-index:3}
+.sf-3d-controls button{background:#111d;border:1px solid #a98b4d;color:#f4d58e;border-radius:8px;padding:7px 10px;font-size:11px}
+.sf-action{background:#242424;border:1px solid #555;color:#eee;border-radius:7px;padding:6px 9px;font-size:11px}.sf-action.validate{border-color:#287d59;color:#8de0b5}.sf-action.delete{border-color:#8c3d3d;color:#ffaaaa}.sf-admin-list{display:grid;gap:8px}.sf-admin-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px;border:1px solid #303030;border-radius:9px}.sf-admin-row small{display:block;color:#aaa}@media(max-width:600px){.sf-admin-row{align-items:flex-start;flex-direction:column}}
+
+/* V2.3 — navigation latérale compacte et podium personnel */
+.sf-dashboard{grid-template-columns:156px minmax(0,1fr) minmax(310px,.95fr);grid-template-rows:1fr;min-height:680px}
+.sf-main-side{grid-column:auto;display:flex;flex-direction:column;align-items:stretch;gap:7px;padding:16px 10px;border-right:1px solid #292929;border-bottom:0}
+.sf-main-side .sf-side-title{font-size:15px;line-height:1.25;padding:8px 8px 20px}
+.sf-main-side .sf-side-item{min-height:42px;display:flex;flex-direction:row;justify-content:flex-start;align-items:center;gap:10px;padding:9px 10px;border:1px solid #292929;border-radius:7px;background:#101010;font-size:15px;text-align:left}
+.sf-main-side .sf-side-item span{font-size:12px}
+.sf-main-side .sf-side-item.active,.sf-main-side .sf-side-item:hover{background:linear-gradient(100deg,#e4bd6c,#9e7026);color:#090909;border-color:#e4bd6c}
+.sf-user-podium{min-height:680px;background:radial-gradient(ellipse at 50% 34%,#292216 0%,#111 43%,#070707 78%);justify-content:center;align-items:center;text-align:center;padding:28px 18px}
+.podium-heading h2{font-size:30px;letter-spacing:.12em;margin:8px 0;color:#f2d28c}
+.podium-heading p{color:#aaa;font-size:13px}
+.podium-stage{display:flex;align-items:flex-end;justify-content:center;gap:8px;width:100%;max-width:430px;margin:48px auto 20px}
+.podium-place{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:5px;padding:12px 5px 0;border-radius:10px 10px 0 0;background:linear-gradient(180deg,#393939,#191919);border:1px solid #514326;border-bottom:0}
+.podium-place.second{height:190px}.podium-place.first{height:245px;background:linear-gradient(180deg,#59451f,#211b10);border-color:#b98b3c}.podium-place.third{height:160px}
+.podium-medal{font-size:34px}.podium-place b{font-size:30px;color:#f2d28c}.podium-place span{font-size:12px;font-weight:800}.podium-place small{font-size:9px;letter-spacing:.16em;color:#c4a15c;margin-bottom:12px}
+.podium-foot{display:flex;gap:12px;justify-content:center;width:100%;max-width:430px}
+.podium-foot div{flex:1;background:#111;border:1px solid #383027;border-radius:9px;padding:12px}
+.podium-foot strong{display:block;font-size:25px;color:#e4bd6c}.podium-foot span{font-size:11px;color:#aaa}
+.podium-note{max-width:390px;color:#888;font-size:10px;margin-top:22px}
+.podium-mini{display:grid;gap:12px;padding:12px 0;color:#ddd;font-size:13px}
+@media(max-width:1050px){.sf-dashboard{grid-template-columns:145px minmax(0,1fr)}.sf-custom-panel{grid-column:2}.sf-user-podium{min-height:560px}}
+@media(max-width:650px){.sf-dashboard{grid-template-columns:1fr}.sf-main-side{display:flex;flex-direction:column}.sf-user-podium{min-height:500px}.sf-custom-panel{grid-column:1}.podium-stage{margin-top:32px}.podium-place.second{height:160px}.podium-place.first{height:205px}.podium-place.third{height:135px}}
+
+/* V2.4 — véritable colonne de navigation à gauche */
+.shell{display:grid;grid-template-columns:138px minmax(0,1fr);grid-template-rows:auto 1fr;gap:0 20px;max-width:1600px;margin:0 auto;padding:18px}
+.shell>.hero{grid-column:2;grid-row:1;margin-bottom:14px}
+.shell>.nav{grid-column:1;grid-row:1 / span 2;position:sticky;top:18px;left:auto;width:138px;height:max-content;display:flex;flex-direction:column;gap:7px;padding:0;margin-top:0;align-self:start}
+.shell>.nav button{width:100%;min-height:44px;padding:9px 10px;text-align:left;white-space:normal;font-size:12px;border-radius:7px}
+.shell>main{grid-column:2;grid-row:2;min-width:0}
+.sf-dashboard{grid-template-columns:minmax(0,1fr) minmax(300px,.82fr);min-height:620px}
+.sf-user-podium{min-height:620px}
+.score-profile-line{display:flex;justify-content:space-between;align-items:center;padding:8px 0 13px;border-bottom:1px solid #292929}
+.score-name{font-size:13px;color:#999}
+.score-extra-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0 0 13px}
+.score-extra-grid div{background:#141414;border:1px solid #292929;border-radius:9px;padding:12px 8px;text-align:center}
+.score-extra-grid span{display:block;color:#999;font-size:10px;margin-bottom:5px}
+.score-extra-grid b{font-size:18px;color:#f0cc86}
+.sf-stats b{font-size:25px}
+.event-calendar-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.event-rich{background:linear-gradient(145deg,#171717,#0b0b0b);border-color:#39332a;display:flex;flex-direction:column;gap:8px}
+.event-card-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.event-countdown{font-size:11px;font-weight:800;color:#e3bd6d}
+.event-rich h3{font-size:19px;margin:3px 0;color:#f3d28e}
+.event-date{font-weight:800;color:#fff;font-size:14px}
+.event-place{font-size:12px;color:#bbb}
+.event-meta{display:flex;justify-content:space-between;gap:10px;border-top:1px solid #292929;padding-top:7px;font-size:11px}
+.event-meta span{color:#888}.event-meta b{text-align:right;color:#ddd;font-weight:650}
+.event-notes{font-size:12px;color:#aaa;margin:3px 0}
+.event-card-actions{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
+.event-link{color:#e5c477;font-size:12px;font-weight:800;text-decoration:none}
+@media(max-width:800px){.shell{display:block;padding:12px}.shell>.hero{margin-bottom:8px}.shell>.nav{position:relative;top:auto;width:100%;display:flex;flex-direction:row;overflow-x:auto;padding:8px 0;margin:0}.shell>.nav button{min-width:110px;text-align:center}.shell>main{width:100%}.sf-dashboard{grid-template-columns:1fr}.sf-custom-panel{grid-column:1}.event-calendar-grid{grid-template-columns:1fr}}
+
+
+/* V2.5 — menu vertical à gauche également sur téléphone */
+@media(max-width:800px){
+ .shell{display:block;margin-left:82px!important;padding:10px 9px 14px!important;max-width:none}
+ .shell>.hero{display:block;margin:0 0 10px!important;padding:13px!important;border-radius:12px}
+ .shell>.hero .stats{gap:5px;margin-top:9px}
+ .shell>.hero .stat{min-width:0;flex:1;padding:7px 6px}
+ .shell>.hero .stat b{font-size:17px}
+ .shell>.hero .stat span{font-size:9px}
+ .shell>.nav{position:fixed!important;z-index:1000;left:5px!important;top:8px!important;bottom:8px!important;width:70px!important;height:auto!important;margin:0!important;padding:6px 4px!important;display:flex!important;flex-direction:column!important;align-items:stretch;gap:6px;overflow-y:auto!important;overflow-x:hidden!important;background:#080808;border:1px solid #292929;border-radius:10px}
+ .shell>.nav button{display:flex;align-items:center;justify-content:center;width:100%!important;min-width:0!important;min-height:48px!important;padding:6px 3px!important;text-align:center!important;white-space:normal!important;overflow-wrap:anywhere;font-size:10px!important;line-height:1.15;border-radius:7px}
+ .shell>.nav button.active{font-weight:900}
+ .shell>main{width:100%;min-width:0}
+ .sf-dashboard{grid-template-columns:1fr!important}
+ .sf-custom-panel{grid-column:1}
+ .sf-user-podium{min-height:430px}
+ .event-calendar-grid{grid-template-columns:1fr}
+}
+@media(max-width:390px){
+ .shell{margin-left:76px!important;padding:8px 6px 12px!important}
+ .shell>.nav{width:64px!important}
+ .shell>.nav button{min-height:45px!important;font-size:9px!important}
+ .hero h1{font-size:21px}
+}
+
+.atm-brand{display:flex;align-items:center;gap:9px;padding:7px 10px;border:1px solid #8e733d;border-radius:12px;background:#0b0b0b;color:#f3e5c1;text-decoration:none;max-width:270px}
+.atm-mark{display:grid;place-items:center;width:48px;height:48px;border:2px solid #d7ad54;border-radius:50%;font-weight:950;font-size:19px;color:#d7ad54;letter-spacing:-1px}
+.atm-name{font-size:9px;line-height:1.3;font-weight:850;letter-spacing:.08em}
+@media(max-width:800px){.atm-brand{margin-top:12px;width:max-content;max-width:100%}}
+
+/* SHEARING FRANCE V3 — identité épurée, laine & prairie */
+:root{--navy:#244638;--navy2:#315b49;--gold:#b58b4b;--cream:#f6f5ef;--ink:#24342c;--muted:#68776e;--line:#dfe5dc;--green:#42765b;--red:#b45c50}
+html{scroll-behavior:smooth}
+body{background:#f2f3ed;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+.shell{background:transparent;max-width:1680px;gap:0 22px;padding:18px 22px}
+.shell>.hero{position:relative;overflow:hidden;min-height:230px;border-radius:20px;padding:28px 30px;background:linear-gradient(90deg,rgba(20,53,39,.96) 0%,rgba(29,69,49,.88) 48%,rgba(29,69,49,.22) 100%),url("moutons-prairie.png") center 48%/cover;color:#fff;box-shadow:0 12px 34px rgba(31,55,39,.12)}
+.hero h1{font-size:clamp(26px,3vw,40px);letter-spacing:.07em;font-weight:850;margin:4px 0}
+.hero p{color:#e5eee6;margin:8px 0 0;font-size:14px}
+.hero .eyebrow{color:#e1d1a9}
+.hero .stats{display:flex;gap:9px;align-self:flex-end}
+.hero .stat{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.24);border-radius:12px;padding:12px 15px;backdrop-filter:blur(8px)}
+.hero .stat b{color:white;font-size:24px}
+.hero .stat span{color:#e4ebe5}
+.logo{background:#e8d8b7;color:#244638;border-radius:14px}
+.atm-brand{background:rgba(255,255,255,.93);border:1px solid #e8ddc7;color:#264537;box-shadow:0 5px 20px #102e1d25}
+.atm-mark{border-color:#b58b4b;color:#315b49}
+.atm-name{color:#315b49}
+.shell>.nav{padding:8px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 24px rgba(36,70,56,.06);gap:6px}
+.shell>.nav button{background:transparent;border:1px solid transparent;color:#52645a;font-weight:650;border-radius:10px;min-height:44px;padding:10px 12px}
+.shell>.nav button:hover{background:#f0f4ee;color:#244638}
+.shell>.nav button.active{background:#e8efe8;border-color:#d4e2d5;color:#244638;font-weight:850}
+.panel,.sf-custom-panel,.sf-user-podium,.profile-card{background:#fff!important;color:var(--ink)!important;border:1px solid var(--line)!important;border-radius:16px!important;box-shadow:0 8px 26px rgba(36,70,56,.055)}
+.panel{padding:22px}
+.panel h2,.sf-custom-panel h2,.sf-user-podium h2{color:#294a39}
+.muted,.small,.score-name,.podium-heading p{color:var(--muted)!important}
+.sf-user-podium{background:linear-gradient(160deg,#f4f6ef,#e8eee5)!important}
+.podium-heading h2{color:#315b49}
+.podium-place{background:linear-gradient(180deg,#e9e7dc,#d8ddd1);border-color:#d4d8cd;color:#314537}
+.podium-place.first{background:linear-gradient(180deg,#e9d7a7,#d6bd7c);border-color:#c6a75f}
+.podium-place b,.podium-foot strong{color:#315b49}
+.podium-place small{color:#6b654f}
+.podium-foot div,.score-extra-grid div{background:#f6f8f3;border:1px solid #e0e7dd}
+.podium-foot span,.score-extra-grid span{color:#68776e}
+.sf-custom-panel{padding:22px}
+.sf-gen{background:#e8efe8;color:#315b49;border-radius:12px;padding:10px 14px;font-weight:850}
+.sf-stats>div{background:#f7f8f4;border:1px solid #e2e8df;border-radius:12px;padding:13px}
+.sf-stats b{color:#315b49}
+.sf-panel-footer button,.btn,.sf-dark-button{background:#315b49!important;color:white!important;border:0!important;border-radius:10px;padding:11px 16px;font-weight:750}
+.event-rich{background:#fff!important;border:1px solid var(--line)!important;border-radius:14px!important;box-shadow:0 6px 18px rgba(36,70,56,.05)}
+.event-rich h3{color:#315b49}
+.event-countdown,.event-link{color:#477b5a}
+.event-date{color:#294a39}
+.notice{background:#f7f4e9;border:1px solid #e9dfc5;color:#665b42;border-radius:10px;padding:12px}
+.success{background:#eaf3eb;color:#315b49;border-radius:10px;padding:12px}
+input,select,textarea,.sf-editor-input{background:#fff!important;color:#26372e!important;border:1px solid #d7e0d6!important;border-radius:9px!important;padding:10px 12px!important}
+label{color:#506257}
+.tag,.pill{border-radius:999px}
+.footer{color:#758178;text-align:center;padding:20px;font-size:11px}
+.page{animation:pageIn .18s ease}
+@keyframes pageIn{from{opacity:.7;transform:translateY(4px)}to{opacity:1;transform:none}}
+@media(max-width:800px){
+ .shell{margin-left:82px!important;padding:10px 10px 16px!important}
+ .shell>.hero{min-height:210px;padding:15px!important;background-position:58% center}
+ .shell>.hero .brand{align-items:flex-start}
+ .shell>.hero .stats{margin-top:14px}
+ .shell>.nav{background:#fff!important;border:1px solid #dfe5dc!important;box-shadow:0 5px 18px #152e1e1c!important}
+ .shell>.nav button{color:#52645a!important;background:transparent!important;border:1px solid transparent!important}
+ .shell>.nav button.active{background:#e8efe8!important;border-color:#d4e2d5!important;color:#244638!important}
+ .panel{padding:15px}
+ .sf-user-podium{min-height:420px}
+}
+@media(max-width:390px){
+ .shell{margin-left:74px!important;padding:8px 7px 14px!important}
+ .shell>.nav{width:62px!important}
+ .shell>.nav button{font-size:9px!important;min-height:44px!important}
+ .hero h1{font-size:20px}
+ .hero .stats .stat{padding:7px 5px}
+}
+
+
+/* V3.3 — retour à l'identité noir anthracite demandée */
+:root{--navy:#08090a;--navy2:#151719;--gold:#c4a15a;--cream:#f0eee8;--ink:#f1f0eb;--muted:#a8adb0;--line:#303437;--green:#9acb25;--red:#c65b52}
+body{background:#090a0b!important;color:#efefeb!important}
+.shell{background:transparent!important}
+.shell>.hero{background:linear-gradient(90deg,rgba(5,6,7,.96) 0%,rgba(8,9,10,.82) 46%,rgba(8,9,10,.28) 100%),url("moutons-prairie.png") center 48%/cover!important;color:#fff!important;box-shadow:0 14px 36px #0009!important;border:1px solid #292d30}
+.hero p,.hero .eyebrow{color:#d4d5d1!important}
+.logo{background:#c4a15a!important;color:#111!important}
+.atm-brand{background:#111315!important;border:1px solid #42474a!important;color:#f2f1ed!important;box-shadow:0 5px 20px #0008!important}
+.atm-mark{border-color:#c4a15a!important;color:#c4a15a!important}
+.atm-name{color:#f2f1ed!important}
+.shell>.nav{background:#111315!important;border:1px solid #303437!important;box-shadow:0 8px 24px #0008!important}
+.shell>.nav button{background:transparent!important;color:#d6d8d5!important;border-color:transparent!important}
+.shell>.nav button:hover{background:#222629!important;color:#fff!important}
+.shell>.nav button.active{background:#282d30!important;border-color:#91bd29!important;color:#b5e34a!important}
+.panel,.sf-custom-panel,.sf-user-podium,.profile-card,.event-rich{background:#151719!important;color:#efefeb!important;border:1px solid #34393c!important;box-shadow:0 8px 26px #0006!important}
+.panel h2,.sf-custom-panel h2,.sf-user-podium h2,.event-rich h3{color:#f1f0eb!important}
+.muted,.small,.score-name,.podium-heading p,.podium-foot span,.score-extra-grid span{color:#aeb4b4!important}
+.sf-user-podium{background:linear-gradient(160deg,#171a1c,#0d0f10)!important}
+.podium-heading h2{color:#f1f0eb!important}
+.podium-place{background:linear-gradient(180deg,#303437,#202426)!important;border-color:#4a5052!important;color:#f4f1e9!important}
+.podium-place.first{background:linear-gradient(180deg,#66552e,#302719)!important;border-color:#a88b4c!important}
+.podium-place b,.podium-foot strong{color:#f5e5b8!important}
+.podium-place small{color:#d1c4a1!important}
+.podium-foot div,.score-extra-grid div,.sf-stats>div{background:#1b1f21!important;border:1px solid #343a3d!important;color:#f1f0eb!important}
+.sf-gen{background:#252a2c!important;color:#b6e34a!important;border:1px solid #41494a}
+.sf-stats b{color:#b6e34a!important}
+.sf-panel-footer button,.btn,.sf-dark-button{background:#9acb25!important;color:#10130d!important;border:0!important;border-radius:10px;padding:11px 16px;font-weight:850}
+.event-countdown,.event-link{color:#b6e34a!important}
+.event-date{color:#f1f0eb!important}
+.notice{background:#29251b!important;border:1px solid #5c4e2e!important;color:#e5d4a9!important}
+.success{background:#17271d!important;color:#b7e2bf!important;border:1px solid #315a3a}
+input,select,textarea,.sf-editor-input{background:#101214!important;color:#f1f0eb!important;border:1px solid #42494c!important;border-radius:9px!important;padding:10px 12px!important}
+input::placeholder,textarea::placeholder{color:#858d8e!important}
+label{color:#d0d3cf!important}
+.tag,.pill{background:#252a2c;color:#e8e8e3;border:1px solid #3b4244}
+.footer{color:#858d8e!important}
+@media(max-width:800px){
+ .shell>.nav{background:#111315!important;border:1px solid #303437!important;box-shadow:0 5px 18px #0009!important}
+ .shell>.nav button{color:#d6d8d5!important;background:transparent!important}
+ .shell>.nav button.active{background:#282d30!important;border-color:#91bd29!important;color:#b5e34a!important}
+}
+
+
+/* SHEARING FRANCE V4 — interface épurée, navigation latérale plus généreuse */
+.shell{max-width:1600px!important;margin:0 auto!important;padding:18px 22px!important;display:grid!important;grid-template-columns:244px minmax(0,1fr)!important;column-gap:20px!important;align-items:start!important}
+.shell>.hero{grid-column:1/-1!important;margin-bottom:16px!important;min-height:205px!important;border-radius:18px!important;padding:24px 28px!important}
+.shell>.nav{grid-column:1!important;grid-row:2!important;position:sticky!important;top:12px!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:8px!important;padding:12px!important;margin:0!important;width:100%!important;max-height:calc(100vh - 24px)!important;overflow-y:auto!important;background:#111315!important;border:1px solid #303437!important;border-radius:16px!important;box-shadow:0 10px 28px #0008!important}
+.shell>.nav button{width:100%!important;min-height:54px!important;padding:13px 14px!important;text-align:left!important;white-space:normal!important;line-height:1.25!important;font-size:14px!important;font-weight:720!important;border-radius:11px!important;border:1px solid #303538!important;background:#191c1e!important;color:#e4e5e1!important;display:flex!important;align-items:center!important;justify-content:flex-start!important}
+.shell>.nav button:hover{background:#24292b!important;border-color:#667b3d!important;color:#fff!important}
+.shell>.nav button.active{background:#252b2d!important;border-color:#9acb25!important;color:#c1ec60!important;box-shadow:inset 3px 0 #9acb25!important}
+.shell>main{grid-column:2!important;grid-row:2!important;min-width:0!important}
+.panel,.sf-custom-panel,.sf-user-podium,.profile-card,.event-rich{border-radius:14px!important;box-shadow:0 6px 20px #0005!important}
+.panel{padding:20px!important}
+.panel h2,.sf-custom-panel h2,.sf-user-podium h2{font-size:20px!important;letter-spacing:-.02em}
+.page{max-width:100%!important}
+.row{gap:12px!important;flex-wrap:wrap!important}
+.field{margin:12px 0!important}
+.event-rich{padding:17px!important}
+.item{padding:13px 8px!important}
+.tag,.pill{padding:5px 9px!important}
+@media(max-width:900px){
+ .shell{grid-template-columns:1fr!important;display:block!important;margin-left:106px!important;padding:10px 12px!important}
+ .shell>.hero{margin-bottom:12px!important;padding:16px!important;min-height:180px!important}
+ .shell>.nav{position:fixed!important;left:7px!important;top:8px!important;bottom:8px!important;width:90px!important;max-height:none!important;z-index:1000!important;padding:7px!important;gap:7px!important;overflow-y:auto!important}
+ .shell>.nav button{min-height:58px!important;padding:8px 5px!important;text-align:center!important;justify-content:center!important;font-size:10px!important;line-height:1.15!important;word-break:normal!important}
+ .shell>.nav button.active{box-shadow:inset 0 -3px #9acb25!important}
+ .shell>main{display:block!important}
+}
+@media(max-width:390px){
+ .shell{margin-left:96px!important;padding:8px 8px!important}
+ .shell>.nav{width:82px!important;left:5px!important;padding:6px!important}
+ .shell>.nav button{font-size:9px!important;min-height:54px!important}
+}
+
+
+/* V4.3 — correction stricte du débordement mobile */
+html,body{width:100%;max-width:100%;overflow-x:hidden!important}
+.shell{min-width:0!important;width:100%!important}
+main,.page,.sf-dashboard,.sf-user-podium,.sf-custom-panel,.panel,.profile-card,.event-rich{min-width:0!important;max-width:100%!important}
+.sf-dashboard>*{min-width:0!important;max-width:100%!important}
+.podium-stage,.podium-foot{width:100%!important;max-width:100%!important;min-width:0!important}
+.table-wrap,.table{max-width:100%;overflow-x:auto}
+@media(max-width:900px){
+ .shell{display:block!important;width:calc(100% - 106px)!important;max-width:calc(100% - 106px)!important;margin:0 0 0 106px!important;padding:8px!important;}
+ .shell>.hero{width:100%!important;max-width:100%!important;padding:14px!important;min-height:0!important;}
+ .shell>.hero .brand{align-items:flex-start;flex-wrap:wrap}
+ .shell>.hero h1{font-size:clamp(21px,5vw,30px)!important;overflow-wrap:anywhere}
+ .shell>.hero .stats{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important}
+ .shell>.hero .stat{min-width:0!important;padding:9px 7px!important}
+ .shell>.hero .stat b{font-size:clamp(18px,5vw,24px)!important}
+ .shell>main{width:100%!important;max-width:100%!important;min-width:0!important}
+ .sf-dashboard{display:grid!important;grid-template-columns:minmax(0,1fr)!important;width:100%!important;min-width:0!important;}
+ .sf-user-podium{padding:18px 10px!important;min-height:0!important;overflow:hidden!important}
+ .podium-heading h2{font-size:clamp(22px,6vw,30px)!important}
+ .podium-place{min-width:0!important;padding-left:3px!important;padding-right:3px!important}
+ .podium-place b{font-size:clamp(20px,6vw,30px)!important}
+ .grid,.event-calendar-grid{grid-template-columns:minmax(0,1fr)!important}
+ .layout{grid-template-columns:minmax(0,1fr)!important}
+ .panel,.sf-custom-panel,.profile-card,.event-rich{padding:13px!important}
+ .table{display:block!important;overflow-x:auto!important;white-space:nowrap!important}
+}
+@media(max-width:390px){.shell{width:calc(100% - 96px)!important;max-width:calc(100% - 96px)!important;margin-left:96px!important;padding:6px!important}}
+
+
+.profile-open{border:1px solid #bda15d;background:#242424;color:#f4e7c2;border-radius:9px;padding:9px 12px;font-weight:700;cursor:pointer}.profile-card{margin-top:18px;border:1px solid #806c3d;background:linear-gradient(145deg,#17191b,#0b0c0e);border-radius:16px;padding:18px}.profile-head{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}.profile-mark{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#b99b58;color:#111;font-size:25px;font-weight:900}.profile-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0}.profile-stat{background:#242628;border:1px solid #45484b;border-radius:10px;padding:11px;text-align:center}.profile-stat b{display:block;font-size:1.35rem;color:#e8cc83}.profile-results{width:100%;border-collapse:collapse;font-size:.9rem}.profile-results th,.profile-results td{padding:9px 7px;border-bottom:1px solid #333;text-align:left}.profile-results th{color:#d8bd79}.profile-source{font-size:.8rem;color:#bdbdbd}@media(max-width:600px){.profile-card{padding:12px}.profile-stat{padding:8px 4px}.profile-results{font-size:.78rem}}
+
+
+
+/* V5.0 — progression interactive */
+.sf-progress-filters{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 14px}
+.sf-progress-filter{border:1px solid #4a412f;background:#111;color:#e9e1d1;border-radius:20px;padding:7px 12px;font-weight:750;font-size:12px;cursor:pointer}
+.sf-progress-filter.active,.sf-progress-filter:hover{background:linear-gradient(100deg,#e7c36f,#b98532);color:#080808;border-color:#f2d78d}
+.sf-progress-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:12px 0}
+.sf-progress-stats div{background:#151515;border:1px solid #333;border-radius:9px;padding:9px 5px;text-align:center}
+.sf-progress-stats b{display:block;color:#e5bb68;font-size:19px}
+.sf-progress-stats span{font-size:10px;color:#aaa}
+.sf-progress-year{margin:10px 0}
+.sf-progress-line{display:flex;justify-content:space-between;gap:8px;font-size:11px;margin-bottom:5px}
+.sf-progress-line span{color:#aaa}
+.sf-progress-track{height:7px;border-radius:8px;background:#292929;overflow:hidden}
+.sf-progress-track i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,#a8792d,#f1d17b)}
+.sf-progress-subtitle{font-size:13px;color:#e6bd6b;margin:18px 0 8px}
+@media(max-width:420px){.sf-progress-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* V4.9 — création de profil personnel */
+#personalProfileSetup .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+#personalProfileSetup .field{min-width:0}
+#personalProfileSetup input{width:100%;max-width:100%;box-sizing:border-box}
+@media(max-width:640px){#personalProfileSetup .grid{grid-template-columns:1fr}}
+
+/* SHEARING FRANCE V6.0 — interface simplifiée, navigation guidée */
+:root{--gold:#d9b45f;--lime:#b8df46;--bg:#080a08;--panel:#111510;--line:#293027;--muted:#a8b0a2}
+body{background:radial-gradient(ellipse at 70% -20%,#1c2717 0%,#080a08 48%);color:#f2f3ec}
+.shell{max-width:1580px;grid-template-columns:228px minmax(0,1fr);gap:0 24px;padding:22px}
+.shell>.hero{background:linear-gradient(115deg,#151d12,#242b17 62%,#171a12);border:1px solid #3b442b;border-radius:18px;padding:20px 24px;align-items:center}
+.hero .logo{background:linear-gradient(140deg,#e5c46f,#a67a2c);color:#111;border-radius:13px}
+.hero .eyebrow{color:#c4d88a}.hero h1{letter-spacing:.04em}.hero p{color:#c2c9b8}
+.stats .stat{background:#0b100b;border:1px solid #424a34}.stats .stat b{color:#d8bd70}
+.shell>.nav.sf-main-side{grid-column:1;grid-row:1 / span 2;position:sticky;top:16px;width:auto;height:calc(100vh - 32px);max-height:850px;overflow-y:auto;display:flex;flex-direction:column;align-items:stretch;gap:5px;padding:14px 11px;margin:0;background:#0c100c;border:1px solid #283026;border-radius:16px}
+.sf-main-side .sf-side-title{font-size:16px;letter-spacing:.04em;color:#e6c66e;padding:8px 9px 14px;line-height:1.35}
+.sf-side-title small{display:block;color:#89927e;font-size:10px;font-weight:600;letter-spacing:.08em;margin-top:3px}
+.sf-nav-group{font-size:9px;letter-spacing:.15em;font-weight:900;color:#78836b;padding:14px 10px 4px}
+.sf-main-side .sf-side-item{min-height:43px;width:100%;display:flex;flex-direction:row;justify-content:flex-start;align-items:center;gap:11px;padding:9px 11px;border:1px solid transparent;border-radius:9px;background:transparent;color:#cbd1c4;font-size:13px;text-align:left;transition:.15s}
+.sf-main-side .sf-side-item b{width:22px;text-align:center;font-size:17px;color:#b9d46a}
+.sf-main-side .sf-side-item span{font-size:12px;line-height:1.25}
+.sf-main-side .sf-side-item.active,.sf-main-side .sf-side-item:hover{background:linear-gradient(100deg,#29351d,#1a2115);border-color:#53613a;color:#f4e6b6}
+.sf-main-side .sf-side-item.active b{color:#e6c66e}
+.sf-nav-foot{margin-top:auto;border-top:1px solid #293027;padding:14px 10px 5px;color:#7f8976;font-size:10px;line-height:1.8}
+.sf-nav-foot span{color:#d5b967;font-weight:800}
+.shell>main{grid-column:2;grid-row:2;min-width:0}
+.page{animation:sfFade .18s ease-out}
+@keyframes sfFade{from{opacity:.65;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.panel,.card{background:linear-gradient(145deg,#141914,#0f130f);border-color:#2b3428;box-shadow:0 8px 24px #0003}
+.panel h2,.card h3{color:#f0f0e8}
+.muted{color:#a5ad9e}
+.field label{color:#c1c9b4}
+.field input,.field select,.field textarea{background:#090d09;border-color:#394333;color:#f2f3ec}
+.btn{background:#b9d84d;color:#111}
+.btn.gold,.sf-gold-button{background:linear-gradient(110deg,#e5c875,#b88b3d);color:#10120c}
+.btn.ghost{background:#20291b;color:#e6edda}
+.tag{background:#242d20;color:#dce9bd}
+.tag.green{background:#1a3324;color:#9ce0b1}.tag.gold{background:#392f1c;color:#e9ca7c}.tag.red{background:#3b2020;color:#f2aaaa}
+.item{border-color:#293027}
+.rank{background:#29351f;color:#e5c875}
+.bar{background:#283126}.bar i{background:linear-gradient(90deg,#9dc83c,#e0c16c)}
+.event{background:#121811;border-color:#303a2a}
+.table th{color:#a9b58f}
+.notice{background:#352d1a;color:#f1d28a}
+.success{background:#183022;color:#a7e6bd}
+.sf-dashboard{grid-template-columns:minmax(0,1fr) minmax(340px,.95fr);gap:14px;background:transparent;border:0;border-radius:0;min-height:0;overflow:visible}
+.sf-user-podium{min-height:520px;border:1px solid #3a3b2b;border-radius:16px;background:radial-gradient(ellipse at 50% 30%,#30301d 0%,#151810 48%,#0e110d 82%)}
+.sf-custom-panel{border:1px solid #30382a;border-radius:16px;background:linear-gradient(145deg,#151a13,#0d100c);padding:22px}
+.sf-content-panel{background:#0d120d;border-color:#2d3729}
+.sf-content-panel h3,.sf-kicker{color:#c9d978}
+.sf-stats div,.score-extra-grid div{background:#101610;border-color:#303a2b}
+.sf-stats b,.score-extra-grid b,.sf-gen{color:#e4c56f}
+.sf-result-row{border-color:#293027}
+.sf-welcome{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:25px 26px;margin-bottom:13px;border:1px solid #3a462b;border-radius:16px;background:linear-gradient(115deg,#1d2918,#111810 65%,#1d2113)}
+.sf-welcome h2{font-size:clamp(22px,3vw,31px);margin:6px 0;color:#f5f2e8}
+.sf-welcome p{margin:0;color:#b5bfaa;font-size:13px}
+.sf-welcome-actions{display:flex;gap:8px;flex-wrap:wrap}
+.sf-primary-action,.sf-secondary-action{border-radius:9px;padding:11px 14px;font-size:12px;font-weight:850;cursor:pointer}
+.sf-primary-action{background:linear-gradient(110deg,#e2c46f,#a9cf48);border:0;color:#111}
+.sf-primary-action span{font-size:17px;margin-left:8px}
+.sf-secondary-action{background:#111811;border:1px solid #4b5a39;color:#e1e8d5}
+.sf-quick-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:0 0 14px}
+.sf-quick-card{display:flex;align-items:center;gap:10px;min-width:0;text-align:left;padding:13px 12px;border-radius:12px;border:1px solid #303a2a;background:#111710;color:#eee;cursor:pointer;transition:.15s}
+.sf-quick-card:hover{border-color:#a9c45c;transform:translateY(-2px);background:#192117}
+.sf-quick-icon{display:grid;place-items:center;flex:0 0 34px;height:34px;border-radius:9px;background:#29351e;color:#e0c36e;font-size:18px}
+.sf-quick-card span:nth-child(2){display:grid;gap:2px;min-width:0}
+.sf-quick-card b{font-size:12px}.sf-quick-card small{font-size:10px;color:#9da795}
+.sf-quick-card strong{margin-left:auto;color:#c7d77c}
+#competitors .panel,#rank .panel,#history .panel,#training .panel,#admin .panel{padding:22px}
+#competitorSearch,#rankSearch,#historySearch,#eventSearch{min-height:44px;font-size:14px}
+#rank .row{flex-wrap:wrap}
+#rank select,#events select{background:#0a0e0a;color:#eee;border:1px solid #394333;border-radius:8px;padding:9px}
+.event-calendar-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.event-rich{background:linear-gradient(145deg,#171e15,#0e120d)}
+.sf-progress-filter{background:#141b12;border-color:#3c4930;color:#dce5d1}
+.sf-progress-filter.active,.sf-progress-filter:hover{background:linear-gradient(100deg,#d7bd70,#a9ce4b);color:#111;border-color:#e5d18a}
+.sf-progress-stats div{background:#121810;border-color:#303a2a}
+.sf-progress-stats b{color:#e4c56f}
+.sf-progress-track{background:#293126}
+.sf-progress-track i{background:linear-gradient(90deg,#9dc83c,#e0c16c)}
+.sf-action{background:#1a2118;border-color:#46523a;color:#e9eddc}
+@media(max-width:1050px){
+ .shell{grid-template-columns:190px minmax(0,1fr);gap:0 16px}
+ .sf-quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .sf-dashboard{grid-template-columns:1fr}
+ .sf-user-podium{min-height:450px}
+}
+@media(max-width:720px){
+ .shell{display:flex;flex-direction:column;padding:10px;gap:10px}
+ .shell>.hero{order:0;margin:0;padding:15px;display:block}
+ .shell>.hero .stats{margin-top:12px}
+ .shell>.nav.sf-main-side{order:1;position:sticky;top:0;z-index:20;width:100%;height:auto;max-height:none;overflow-x:auto;overflow-y:hidden;display:flex;flex-direction:row;align-items:center;gap:6px;padding:8px;background:#0b100b;border-radius:12px}
+ .sf-main-side .sf-side-title,.sf-nav-group,.sf-nav-foot{display:none}
+ .sf-main-side .sf-side-item{flex:0 0 auto;width:auto;min-height:42px;padding:8px 10px;gap:7px;white-space:nowrap;border:1px solid #303a2a;background:#111710}
+ .sf-main-side .sf-side-item b{font-size:15px;width:auto}
+ .sf-main-side .sf-side-item span{font-size:11px}
+ .shell>main{order:2;width:100%}
+ .sf-welcome{display:block;padding:19px}
+ .sf-welcome-actions{margin-top:14px}
+ .sf-quick-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+ .sf-quick-card{padding:10px 8px;gap:7px}
+ .sf-quick-card small{font-size:9px}
+ .sf-user-podium{min-height:430px;padding:22px 12px}
+ .sf-custom-panel{padding:15px}
+ .event-calendar-grid{grid-template-columns:1fr}
+ .layout{grid-template-columns:1fr}
+}
+@media(max-width:390px){
+ .sf-quick-card{align-items:flex-start}
+ .sf-quick-icon{flex-basis:29px;height:29px}
+ .sf-quick-card strong{display:none}
+ .sf-stats{grid-template-columns:repeat(2,1fr)}
+}
+
+
+/* V6.1 — navigation lisible : libellés courts, icônes, aucune troncature */
+.sf-main-side .sf-side-item{
+  min-width:0;
+  width:100%;
+  white-space:normal;
+  overflow:visible;
+  text-overflow:clip;
+  line-height:1.25;
+}
+.sf-main-side .sf-side-item span{
+  display:block;
+  min-width:0;
+  white-space:normal;
+  overflow:visible;
+  text-overflow:clip;
+  overflow-wrap:anywhere;
+  line-height:1.25;
+}
+.sf-main-side .sf-side-item b{
+  flex:0 0 24px;
+  width:24px;
+}
+.sf-main-side .sf-side-title{white-space:normal}
+@media(max-width:720px){
+  .shell>.nav.sf-main-side{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    align-items:stretch;
+    overflow:visible;
+    max-height:none;
+    height:auto;
+    gap:6px;
+    padding:8px;
+  }
+  .sf-main-side .sf-side-item{
+    min-width:0;
+    width:100%;
+    min-height:54px;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:4px;
+    padding:7px 4px;
+    text-align:center;
+    white-space:normal;
+  }
+  .sf-main-side .sf-side-item b{
+    flex:0 0 auto;
+    width:auto;
+    font-size:17px;
+  }
+  .sf-main-side .sf-side-item span{
+    font-size:10px;
+    text-align:center;
+    overflow-wrap:normal;
+    word-break:normal;
+    hyphens:auto;
+  }
+}
+@media(max-width:390px){
+  .shell>.nav.sf-main-side{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .sf-main-side .sf-side-item{min-height:52px;padding:6px 3px}
+  .sf-main-side .sf-side-item span{font-size:9px}
+}
+
+
+/* V6.3 — import de feuille par photo et contrôle des données OCR */
+.sf-ocr-card{background:linear-gradient(145deg,#141a12,#0c100c);border:1px solid #3b4930;border-radius:16px;padding:20px;margin-bottom:16px}
+.sf-ocr-card h2{margin:5px 0 8px}
+.sf-ocr-upload{display:grid;grid-template-columns:minmax(220px,.9fr) minmax(220px,1.1fr);gap:12px;align-items:center;margin:16px 0}
+.sf-ocr-drop{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;min-height:150px;padding:16px;border:2px dashed #66764a;border-radius:12px;background:#0b110a;text-align:center;cursor:pointer}
+.sf-ocr-drop input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.sf-ocr-camera{font-size:30px}.sf-ocr-drop small{color:#9da995;font-size:11px}
+.sf-ocr-preview-wrap{min-width:0}.sf-ocr-preview-wrap img{max-height:190px;max-width:100%;object-fit:contain;background:#050705;border:1px solid #333;border-radius:9px}
+.sf-ocr-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 10px}
+.sf-ocr-actions{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 10px}
+.sf-ocr-card textarea{width:100%;background:#080d08;color:#edf1e7;border:1px solid #3b4930;border-radius:9px;padding:10px;resize:vertical}
+.sf-ocr-table-wrap{margin-top:16px;border-top:1px solid #303a2a;padding-top:14px}
+.sf-ocr-edit-head,.sf-ocr-edit-row{display:grid;grid-template-columns:65px minmax(140px,2fr) minmax(80px,1fr) minmax(75px,1fr) minmax(75px,1fr) 34px;gap:6px;align-items:center}
+.sf-ocr-edit-head{font-size:10px;color:#aab69a;font-weight:800;padding:8px 4px}
+.sf-ocr-edit-row{padding:5px 4px;border-top:1px solid #293027}
+.sf-ocr-edit-row input{width:100%;min-width:0;background:#080d08;color:#f0f2e9;border:1px solid #3b4930;border-radius:6px;padding:8px 6px;font-size:12px}
+.sf-ocr-publish{display:grid;gap:10px;margin-top:16px}
+@media(max-width:720px){
+ .sf-ocr-card{padding:13px}
+ .sf-ocr-upload{grid-template-columns:1fr}
+ .sf-ocr-meta{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .sf-ocr-table-wrap{overflow-x:auto}
+ .sf-ocr-edit-head,.sf-ocr-edit-row{min-width:560px}
+}
+
+</style></head>
+<body><div class="shell">
+<header class="hero">
+ <div><div class="brand"><div class="logo">✂</div><div><div class="eyebrow">COMPÉTITIONS · RÉSULTATS · FORMATIONS</div><h1>SHEARING FRANCE</h1></div></div>
+ <a class="atm-brand" href="https://tondeursdemoutons.fr/" target="_blank" rel="noopener" aria-label="Association des Tondeurs de Moutons, site officiel">
+   <span class="atm-mark">ATM</span><span class="atm-name">ASSOCIATION DES<br>TONDEURS DE MOUTONS</span>
+ </a><p>La plateforme des compétitions de tonte — France & international</p></div>
+ <div class="stats"><div class="stat"><b id="eventCount">0</b><span>Compétitions</span></div><div class="stat"><b id="riderCount">0</b><span>Compétiteurs</span></div><div class="stat"><b>V6.3</b><span>Version</span></div></div>
+</header>
+<nav class="nav sf-main-side" id="nav" aria-label="Navigation principale">
+ <div class="sf-side-title">SHEARING FRANCE <small>Votre espace tonte</small></div>
+ <div class="sf-nav-group">DÉCOUVRIR</div>
+ <button class="sf-side-item active" data-page="home"><b>⌂</b><span>Accueil</span></button>
+ <button class="sf-side-item" data-page="events"><b>▦</b><span>Calendrier</span></button>
+ <button class="sf-side-item" data-page="history"><b>◷</b><span>Résultats</span></button>
+ <div class="sf-nav-group">LA COMMUNAUTÉ</div>
+ <button class="sf-side-item" data-page="competitors"><b>♙</b><span>Tondeurs</span></button>
+ <button class="sf-side-item" data-page="rank"><b>🏆</b><span>Classements</span></button>
+ <button class="sf-side-item" data-page="profile"><b>◉</b><span>Mon profil</span></button>
+ <div class="sf-nav-group">PARTICIPER</div>
+ <button class="sf-side-item" data-page="live"><b>✎</b><span>Saisie</span></button>
+ <button class="sf-side-item" data-page="training"><b>▣</b><span>Formations</span></button>
+ <button class="sf-side-item" data-page="admin"><b>⚙</b><span>Organisation</span></button>
+ <div class="sf-nav-foot">France · International<br><span>Version 6.2</span></div>
+</nav>
+<main>
+<section id="home" class="page">
+ <div class="sf-welcome">
+  <div><div class="sf-kicker">BIENVENUE SUR SHEARING FRANCE</div><h2>Tout l'univers de la tonte, au même endroit.</h2><p>Retrouve les concours, les résultats et les tondeurs en quelques clics.</p></div>
+  <div class="sf-welcome-actions"><button type="button" class="sf-primary-action" onclick="show('events')">Voir les concours <span>→</span></button><button type="button" class="sf-secondary-action" onclick="show('competitors')">Trouver un tondeur</button></div>
+ </div>
+ <div class="sf-quick-grid">
+  <button type="button" class="sf-quick-card" onclick="show('events')"><span class="sf-quick-icon">▦</span><span><b>Calendrier</b><small>Les prochaines compétitions</small></span><strong>→</strong></button>
+  <button type="button" class="sf-quick-card" onclick="show('history')"><span class="sf-quick-icon">◷</span><span><b>Résultats</b><small>Consulter les palmarès</small></span><strong>→</strong></button>
+  <button type="button" class="sf-quick-card" onclick="show('rank')"><span class="sf-quick-icon">🏆</span><span><b>Classements</b><small>Comparer les performances</small></span><strong>→</strong></button>
+  <button type="button" class="sf-quick-card" onclick="show('profile')"><span class="sf-quick-icon">◉</span><span><b>Mon profil</b><small>Suivre ma progression</small></span><strong>→</strong></button>
+ </div>
+ <div class="sf-dashboard">
+
+  <div class="sf-user-podium">
+   <div class="podium-heading"><span class="sf-kicker">SHEARING FRANCE · PALMARÈS PERSONNEL</span><h2>MON PODIUM</h2><p>Mes trois meilleures places en compétition</p></div>
+   <div class="podium-stage" id="personalPodium">
+    <div class="podium-place second"><div class="podium-medal">🥈</div><b id="podiumSilver">0</b><span>2e place</span><small>ARGENT</small></div>
+    <div class="podium-place first"><div class="podium-medal">🥇</div><b id="podiumGold">0</b><span>1re place</span><small>OR</small></div>
+    <div class="podium-place third"><div class="podium-medal">🥉</div><b id="podiumBronze">0</b><span>3e place</span><small>BRONZE</small></div>
+   </div>
+   <div class="podium-foot"><div><strong id="podiumTotal">0</strong><span>podiums validés</span></div><div><strong id="podiumWins">0</strong><span>victoires</span></div></div>
+   <p class="podium-note">Les médailles sont calculées uniquement à partir des résultats validés. Elles se mettront à jour au fil des compétitions.</p>
+  </div>
+  <div class="sf-custom-panel">
+   <div class="sf-panel-head"><div><div class="sf-kicker">SHEARING FRANCE · TABLEAU DES SCORES</div><h2 id="mainPanelTitle">Mes performances</h2></div><span class="sf-gen" id="dashScoreHero">0 <small>POINTS</small></span></div>
+   <div class="score-profile-line"><span class="score-name" id="dashName">Fabien Charroux</span></div>
+   <div class="sf-stats">
+    <div><b id="dashContests">0</b><span>Concours saisis</span></div><div><b id="dashPodiums">0</b><span>Podiums validés</span></div><div><b id="dashWins">0</b><span>Victoires validées</span></div><div><b id="dashPoints">0</b><span>Points calculés</span></div>
+   </div>
+   <div class="score-extra-grid"><div><span>Meilleur classement</span><b id="bestRank">—</b></div><div><span>Résultats validés</span><b id="validatedCount">0</b></div><div><span>Temps moyen</span><b id="averageTime">—</b></div></div>
+   <div class="sf-content-panel" id="mainPanelContent">
+    <h3>Dernières performances validées</h3>
+    <div id="homeRecentResults" class="sf-recent-results"><span class="muted small">Aucune performance validée pour le moment.</span></div>
+   </div>
+   <div class="sf-panel-footer"><button class="sf-dark-button" onclick="show('events')">VOIR LES CONCOURS</button></div>
+  </div>
+ </div>
+</section>
+<section id="competitors" class="page hidden">
+ <div class="panel">
+  <div class="sf-kicker">ANNUAIRE & PALMARÈS</div>
+  <h2>Trouver un tondeur</h2>
+  <p class="muted small">Recherche par nom, prénom, pays, compétition ou catégorie. Les résultats affichés proviennent des données présentes dans l'application.</p>
+  <div class="field"><input id="competitorSearch" type="search" placeholder="Ex. : Jean Dupont, Nouvelle-Zélande, Martel…" autocomplete="off"></div>
+  <div id="competitorSearchCount" class="muted small" aria-live="polite">Saisis un nom pour commencer.</div>
+  <div id="competitorSearchResults"></div><div id="competitorProfileDetail"></div>
+ </div>
+</section>
+<section id="rank" class="page hidden"><div class="panel"><div class="row"><h2>Classements des tondeurs</h2><span class="tag gold">Classement calculé</span><select id="rankScope"><option value="all">International</option><option value="France">France</option><option value="Nouvelle-Zélande">Nouvelle-Zélande</option><option value="Royaume-Uni">Royaume-Uni</option></select><select id="rankSeason"><option value="all">Toutes saisons</option></select><select id="rankCategory"><option value="all">Toutes catégories</option><option>Open</option><option>Junior</option><option>Senior</option><option>Femmes</option><option>Équipe</option><option>Agneaux</option></select></div><p class="muted small">Les classements réels sont calculés à partir des résultats validés. Les profils de démonstration sont identifiés séparément.</p><div class="field"><input id="rankSearch" placeholder="Rechercher un compétiteur…"></div><div id="rankList"></div></div></section>
+<section id="events" class="page hidden">
+ <div class="panel events-intro"><div class="row"><div><div class="sf-kicker">CALENDRIER SPORTIF</div><h2>Calendrier des compétitions</h2><p class="muted small">Calendrier France & international. Les dates et informations non confirmées sont signalées.</p></div><select id="eventScope"><option value="all">Tous les pays</option><option>France</option><option>Nouvelle-Zélande</option><option>Royaume-Uni</option><option>Espagne</option><option>Australie</option></select><input id="eventSearch" type="search" placeholder="Rechercher une compétition, ville, pays ou année…" autocomplete="off"></div></div>
+ <div class="panel" style="margin-top:14px"><div class="row"><h2>À venir</h2><span class="tag green" id="upcomingCount">0 concours</span></div><div id="upcomingEvents" class="event-calendar-grid"></div></div>
+ <div class="panel" style="margin-top:14px"><h2>Concours passés & archives</h2><div id="pastEvents" class="grid"></div></div>
+</section>
+<section id="live" class="page hidden">
+ <div class="sf-ocr-card">
+  <div class="sf-kicker">IMPORT INTELLIGENT · PHOTO → RÉSULTATS</div>
+  <h2>Importer une feuille de résultats</h2>
+  <p class="muted small">Photographie ou sélectionne une feuille. La reconnaissance lit le texte, prépare les lignes et repère les nouveaux compétiteurs. Tu peux tout corriger avant l'enregistrement.</p>
+  <div class="sf-ocr-upload">
+   <label class="sf-ocr-drop" for="sheetFile"><span class="sf-ocr-camera">📷</span><b>Prendre une photo ou choisir un fichier</b><small>JPG, PNG ou photo prise avec le téléphone</small><input type="file" id="sheetFile" accept="image/*" capture="environment"></label>
+   <div class="sf-ocr-preview-wrap"><img id="sheetPreview" class="photo-preview hidden" alt="Aperçu de la feuille à analyser"><div id="ocrFileName" class="muted small">Aucune photo sélectionnée</div></div>
+  </div>
+  <div class="sf-ocr-meta">
+   <div class="field"><label for="ocrEventName">Nom du concours *</label><input id="ocrEventName" placeholder="Ex. Concours de tonte de Martel"></div>
+   <div class="field"><label for="ocrEventDate">Date</label><input id="ocrEventDate" type="date"></div>
+   <div class="field"><label for="ocrEventCity">Ville</label><input id="ocrEventCity" placeholder="Ex. Martel"></div>
+   <div class="field"><label for="ocrEventCountry">Pays</label><input id="ocrEventCountry" value="France"></div>
+   <div class="field"><label for="ocrCategory">Catégorie</label><select id="ocrCategory"><option>Open</option><option>Junior</option><option>Senior</option><option>Femmes</option><option>Équipe</option><option>Agneaux</option><option>Tri de laine</option></select></div>
+   <div class="field"><label for="ocrRound">Épreuve / tour</label><input id="ocrRound" placeholder="Ex. Finale Open"></div>
+  </div>
+  <div class="sf-ocr-actions"><button type="button" class="btn gold" id="runOcr">Lire la photo</button><button type="button" class="btn ghost" id="parseOcrText">Recréer les lignes depuis le texte</button></div>
+  <div id="ocrProgress" class="muted small" role="status" aria-live="polite">En attente d'une photo.</div>
+  <div class="field"><label for="ocrRawText">Texte reconnu — tu peux le corriger ici si nécessaire</label><textarea id="ocrRawText" rows="7" placeholder="Le texte reconnu apparaîtra ici. Tu peux aussi le coller manuellement."></textarea></div>
+  <div class="sf-ocr-table-wrap"><div class="row"><h3>Vérification des compétiteurs et des places</h3><span class="pill" id="ocrRowCount">0 ligne</span></div><p class="muted small">Contrôle les noms, places, temps, pénalités et points. Les champs non lus restent vides : aucune valeur n'est inventée.</p><div id="ocrRows"><p class="muted small">Lance la reconnaissance pour préparer les lignes.</p></div></div>
+  <div class="sf-ocr-publish"><div class="notice">Les résultats importés seront d'abord enregistrés en <b>provisoire</b>. La publication publique et la synchronisation entre tous les utilisateurs nécessitent encore une base de données en ligne et un compte organisateur vérifié.</div><button type="button" class="btn gold" id="saveOcrImport">Créer le concours et enregistrer les résultats</button><div id="ocrSaveMessage" class="small" aria-live="polite"></div></div>
+ </div>
+ <div class="layout"><div class="panel"><div class="row"><h2>Saisir et gérer les résultats</h2><span class="tag red">Données locales</span></div><p class="muted">Historique des performances et résultats. Les résultats saisis ici restent locaux. La validation est une confirmation manuelle dans cette démonstration, sans authentification officielle.</p><div id="liveTable"></div></div><aside class="panel"><h2>Consulter une feuille de résultats</h2><p class="muted small">Tu peux saisir un résultat manuellement ou utiliser l’import photo intelligent ci-dessus.</p><div class="field"><label>Compétition</label><select id="resultEvent"><option value="">Résultat hors compétition</option></select></div><div class="field"><label>Catégorie sportive</label><select id="resultCategory"><option>Open</option><option>Junior</option><option>Senior</option><option>Femmes</option><option>Équipe</option><option>Agneaux</option></select></div><div class="field"><label>Épreuve / tour</label><input id="resultRound" placeholder="Ex. Finale, qualification…"></div><div class="field"><label>Juge / responsable de saisie</label><input id="resultJudge" placeholder="Nom du juge (facultatif)"></div><div class="field"><label>Compétiteur</label><input id="resultName" placeholder="Nom du tondeur"></div><div class="field"><label>Temps (secondes)</label><input id="resultTime" type="number" min="1" placeholder="Ex. 1122"></div><div class="field"><label>Pénalités</label><input id="resultPenalty" type="number" min="0" placeholder="0"></div><div class="field"><label>Classement final (facultatif)</label><input id="resultRank" type="number" min="1" placeholder="Ex. 1 pour une victoire"></div><div class="field"><label>Points attribués (selon règlement)</label><input id="resultPoints" type="number" min="0" placeholder="Points officiels du concours"></div><div class="field"><label>Statut</label><select id="resultStatus"><option value="Provisoire">Provisoire — à contrôler</option></select></div><button class="btn" id="addResult">Ajouter le résultat</button><div id="resultMsg" style="margin-top:10px"></div></aside></div></section>
+<section id="history" class="page hidden"><div class="panel"><div class="row"><div><div class="sf-kicker">ARCHIVES HISTORIQUES</div><h2>Archives des résultats</h2></div><span class="tag gold" id="historyCount">0 résultats</span></div><p class="muted small">Classements repris de publications accessibles. Les tableaux incomplets sont signalés comme partiels ; les points et temps non publiés ne sont pas inventés.</p><div class="field"><input id="historySearch" placeholder="Rechercher une compétition ou un compétiteur…"></div><div id="historyResults"></div></div></section>
+<section id="training" class="page hidden"><div class="panel"><div class="sf-kicker">FORMATION PROFESSIONNELLE</div><h2>Formations ATM à venir</h2><p class="muted">L’ATM accompagne les tondeurs débutants et confirmés avec des stages de découverte, d’initiation et de perfectionnement. Les formations abordent la méthode Bowen, la sécurité, la contention, l’organisation du chantier, le matériel et l’affûtage. L’association indiquait organiser une douzaine de formations par an ; les dates doivent toutefois être confirmées auprès d’elle.</p><div id="trainingList"></div><div class="notice" style="margin-top:14px">Au 10 novembre 2026, aucune date ATM 2027 avec bulletin d’inscription actif n’a pu être confirmée dans les annonces publiques consultées. Les dates et liens seront affichés ici dès publication officielle.</div><div class="grid" style="margin-top:14px"><article class="event"><h3>Site officiel ATM</h3><p class="muted small">Informations et actualités de l’association.</p><a class="event-link" href="https://tondeursdemoutons.fr/" target="_blank" rel="noopener">Ouvrir le site ATM ↗</a></article><article class="event"><h3>Page de l’association</h3><p class="muted small">Contacter l’ATM pour les dates, niveaux et inscriptions.</p><a class="event-link" href="https://www.helloasso.com/associations/association-des-tondeurs-de-moutons-a-t-m" target="_blank" rel="noopener">ATM sur HelloAsso ↗</a></article></div></div></section>
+<section id="profile" class="page hidden"><div class="layout"><div><div class="profile-card"><div class="profile-top"><div><div class="eyebrow">PALMARÈS ET STATISTIQUES</div><h2 id="profileName">Fabien Charroux</h2><div class="muted">🇫🇷 France · Profil personnel</div><div class="rating"><span id="profileRating">—</span><small style="font-size:13px"> GEN</small></div></div></div><div class="row" style="margin-top:18px"><span>Concours <b id="profileContests">0</b></span><span>Podiums <b id="profilePodiums">0</b></span><span>Victoires <b id="profileWins">0</b></span></div></div><div class="panel" style="margin-top:14px" id="personalProfileSetup">
+<h2>Mon profil de tondeur</h2>
+<p class="muted small">Chaque tondeur peut créer sa fiche personnelle et retrouver son palmarès sur cet appareil. Le profil sera ajouté à l'annuaire local.</p>
+<div class="grid">
+ <div class="field"><label for="myProfileName">Nom et prénom *</label><input id="myProfileName" maxlength="90" placeholder="Ex. Jean Dupont" autocomplete="name"></div>
+ <div class="field"><label for="myProfileCountry">Pays *</label><input id="myProfileCountry" maxlength="60" value="France" placeholder="France"></div>
+ <div class="field"><label for="myProfileDepartment">Département / région</label><input id="myProfileDepartment" maxlength="80" placeholder="Vendée"></div>
+ <div class="field"><label for="myProfileClub">Club / équipe</label><input id="myProfileClub" maxlength="100" placeholder="Club ou équipe (facultatif)"></div>
+</div>
+<button class="btn primary" id="createPersonalProfile" type="button">Créer / mettre à jour mon profil</button>
+<div id="personalProfileMessage" class="muted small" style="margin-top:8px" aria-live="polite"></div>
+</div><div class="panel" style="margin-top:14px"><h2>Attributs sportifs</h2><div id="attributes"></div></div><div class="panel" style="margin-top:14px"><h2>Progression saison après saison</h2><div id="seasonProgress"></div></div></div><aside class="panel"><h2>Mon palmarès</h2><p class="muted small">Retrouve ici tes performances validées, tes podiums et ta progression saison après saison.</p><div id="careerPodiumSummary"></div></aside></div></section>
+
+<section id="admin" class="page hidden"><div class="panel"><h2>Outils d’organisation</h2><p class="muted small" id="saveStatus">Sauvegarde locale active</p><div class="notice">Mode démonstration local. Pour un usage officiel, il faudra des comptes, des rôles sécurisés et une validation authentifiée.</div><div class="grid"><div><h3>Créer un événement</h3><div class="field"><label>Nom</label><input id="newEventName" placeholder="Nom du concours"></div><div class="field"><label>Pays</label><input id="newEventCountry" placeholder="France"></div><div class="field"><label>Date</label><input id="newEventDate" type="date"></div><div class="field"><label>Ville</label><input id="newEventCity" placeholder="Ville"></div><div class="field"><label>Organisateur</label><input id="newEventOrganizer" placeholder="Club / association / organisateur"></div><div class="field"><label>Lieu précis / salle / ferme</label><input id="newEventVenue" placeholder="Lieu du concours"></div>
+<div class="field"><label>Date limite d'inscription</label><input id="newEventDeadline" type="date"></div>
+<div class="field"><label>Disciplines / catégories</label><input id="newEventDisciplines" placeholder="Open, Senior, Junior, agneaux…"></div>
+<div class="field"><label>Site ou lien d'inscription</label><input id="newEventUrl" type="url" placeholder="https://…"></div>
+<div class="field"><label>Informations complémentaires</label><textarea id="newEventNotes" placeholder="Horaires, contact, règlement, tarifs…"></textarea></div><div class="field"><label>Catégorie</label><select id="newEventCategory"><option>Concours local</option><option>Championnat régional</option><option>Championnat national</option><option>International</option><option>Concours de tonte d'agneaux</option></select></div><button class="btn" id="createEvent">Créer l'événement</button></div><div><h3>Exporter les données</h3><p class="muted small">Télécharge les données de démonstration et les résultats saisis dans cette session.</p><button class="btn ghost" id="exportData">Exporter une sauvegarde JSON</button><div class="field" style="margin-top:12px"><label>Restaurer une sauvegarde</label><input type="file" id="importData" accept="application/json,.json"></div><p class="small muted">La sauvegarde contient tes concours, inscriptions, résultats et ton profil. Elle reste indépendante d’un serveur central.</p></div></div><hr style="border:0;border-top:1px solid #292929;margin:22px 0"><h3>Gestion sportive du concours</h3><p class="muted small">Sélectionne un événement pour gérer ses inscrits et consulter ses résultats. Les données restent sur cet appareil.</p><div class="field"><label>Concours à gérer</label><select id="manageEvent"></select></div><div class="grid"><div><p class="muted small">La gestion sportive est volontairement centrée sur les concours, les compétiteurs et les résultats, sans gestion des stands.</p></div><div><div class="field"><label>Inscrire un compétiteur</label><input id="newEntry" placeholder="Nom du tondeur"></div><div class="field"><label>Catégorie d'inscription</label><input id="newEntryCategory" placeholder="Open, Senior, Junior…"></div><button class="btn" id="addEntry">Inscrire le compétiteur</button></div></div><div id="eventManagement" style="margin-top:14px"></div></div></section>
+</main><div class="footer">SHEARING FRANCE · Version 4.9 · Prototype local · Données de démonstration clairement identifiées</div>
+</div>
+
+<script>
+// Identifiant unique requis pour initialiser les compétitions et les fiches compétiteurs.
+const uid=()=>`sf-${Date.now().toString(36)}-${Math.random().toString(36).slice(2,10)}`;
+const demoRiders=[];
+const demoEvents=[];
+let data=JSON.parse(localStorage.getItem("sf_v1")||"null")||{riders:demoRiders,events:demoEvents,results:[],profile:{name:"Fabien Charroux",country:"France"}};
+data.riders=(data.riders||[]);if(data.profile){["avatar","style","customAvatar","avatarParts","avatarChoices"].forEach(k=>delete data.profile[k]);}data.events=(data.events||[]).map(e=>({...e,id:e.id||uid(),entries:e.entries||[]}));data.events=data.events.filter(e=>!["Championnat de France — Martel","La Ferme s'invite","Golden Shears","British Shearing Championships"].includes(e.name));data.results=(data.results||[]).map(r=>({...r,id:r.id||uid()}));
+const historicalEvents=[
+ {key:"martel-2026",name:"Championnat de France & concours international — Martel / Les Tondailles",country:"France",city:"Martel",date:"2026-08-02",status:"Terminé",category:"Championnat national",url:"https://defensepaysannedulot.fr/2026/08/24/les-tondailles-2026-une-edition-exceptionnelle-au-service-de-la-filiere-ovine-et-du-pastoralisme/"},
+ {key:"dorat-2022",name:"Concours national de tonte — Le Dorat",country:"France",city:"Le Dorat",date:"2022-06-25",status:"Terminé",category:"Concours national",url:"https://www.alliance-elevage.com/informations/actualite/resultats-concours-de-tonte-de-moutons-le-dorat"},
+ {key:"france-2019",name:"Championnat de France de tonte",country:"France",city:"France",date:"2019-07-05",status:"Terminé",category:"Championnat national",url:"https://www.alliance-elevage.com/informations/actualite/tonte-ils-sont-champions-de-france"},
+ {key:"martel-2023",name:"Fête des Tondailles — concours national",country:"France",city:"Martel",date:"2023-07-14",status:"Terminé",category:"Concours national",url:"https://www.ladepeche.fr/2023/07/23/loic-leygonie-remporte-la-finale-open-a-la-fete-des-tondailles-11357075.php"},
+ {key:"agrimax-2023",name:"Concours de tonte Agrimax",country:"France",city:"Metz",date:"2023-10-27",status:"Terminé",category:"Concours régional",url:"https://syndicatovin57.wordpress.com/category/agrimax/page/2/"},
+ {key:"golden-shears-2026",name:"Golden Shears — Championnats du monde",country:"Nouvelle-Zélande",city:"Masterton",date:"2026-03-07",status:"Terminé",category:"Championnat du monde",url:"https://www.goldenshears.co.nz/golden-shears-programme-2026"},
+ {key:"alexandra-2026",name:"NZ Merino Shearing Championships",country:"Nouvelle-Zélande",city:"Alexandra",date:"2026-10-03",status:"Terminé",category:"National Circuit — Merino",url:"https://www.pggwrightson.co.nz/community/key-sponsorships-partnerships/national-shearing-circuit"},
+ {key:"waimate-2026",name:"Waimate Shears — NZ Spring Shearing Competition",country:"Nouvelle-Zélande",city:"Waimate",date:"2026-10-10",status:"Terminé",category:"National Circuit — Romney",url:"https://www.pggwrightson.co.nz/community/key-sponsorships-partnerships/national-shearing-circuit"},
+ {key:"poitiers-2026",name:"La Ferme s'invite — manche nationale de tonte",country:"France",city:"Poitiers",date:"2026-11-08",status:"Terminé",category:"Manche nationale",url:"https://lafermesinvite.com/"},
+ {key:"christchurch-2026",name:"Canterbury A&P Show — NZ Corriedale Shearing & Woolhandling Championships",country:"Nouvelle-Zélande",city:"Christchurch",date:"2026-11-13",status:"À venir",category:"National Circuit — Corriedale",url:"https://www.pggwrightson.co.nz/community/key-sponsorships-partnerships/national-shearing-circuit"},
+ {key:"marton-2027",name:"Rangitikei Shearing Sports",country:"Nouvelle-Zélande",city:"Marton",date:"2027-02-07",status:"À venir",category:"National Circuit — Romney lambs",url:"https://www.pggwrightson.co.nz/community/key-sponsorships-partnerships/national-shearing-circuit"},
+ {key:"pahiatua-2027",name:"Pahiatua Shears",country:"Nouvelle-Zélande",city:"Pahiatua",date:"2027-02-28",status:"À venir",category:"National Circuit — Romney second shear",url:"https://www.pggwrightson.co.nz/community/key-sponsorships-partnerships/national-shearing-circuit"},
+ {key:"golden-shears-2027",name:"Golden Shears 2027 — World Shearing & Woolhandling",country:"Nouvelle-Zélande",city:"Masterton",date:"2027-03-06",status:"À venir",category:"Championnat du monde",url:"https://www.goldenshears.co.nz/"},
+ {key:"martel-2027",name:"Fête des Tondailles — concours de tonte (date annoncée, programme à confirmer)",country:"France",city:"Martel",date:"2027-07-14",status:"À confirmer",category:"Concours national",url:"https://fete-de-village.fr/fete-tondailles-martel/"}
+];
+for(const h of historicalEvents){let e=data.events.find(x=>x.archiveKey===h.key)||data.events.find(x=>x.name===h.name&&x.date===h.date);if(!e){e={...h,id:uid(),entries:[]};data.events.push(e);}Object.assign(e,{...h,id:e.id,archiveKey:h.key,entries:e.entries||[],organizer:e.organizer||"Organisateur de l’événement",disciplines:e.disciplines||"Tonte machine, tonte aux forces, tri de laine",notes:e.notes||"Données reprises de sources publiques. Consulter la source pour le programme et les détails."});
+ if(h.key==="martel-2026")e.notes="108 compétiteurs annoncés et environ 1 600 brebis tondues. Championnat de France, concours international, tonte machine, tonte aux forces, tri de laine et contest France–Pays de Galles.";
+ if(h.key==="poitiers-2026")e.notes="Concours de tonte annoncé le dimanche 8 novembre de 10 h à 18 h dans le cadre du salon La Ferme s’invite. Résultats détaillés non retrouvés dans les sources consultées.";
+ if(h.key==="martel-2027")e.notes="Date du 14 juillet 2027 annoncée par un agenda tiers. Programme officiel et confirmation par l’organisateur encore attendus.";}
+
+// Import des classements publiés sur le registre officiel ATM (circuits 2022-2025).
+// Les tableaux affichés sur le site donnent les quatre premières places; les PDF liés
+// par l'ATM peuvent contenir des classements complets et restent accessibles depuis la source.
+const atmOfficialImport={"events":[{"key":"atm-2025-merle","name":"Merle 2025","country":"France","city":"Salon-de-Provence","date":"2025-04-05","status":"Terminé","category":"Circuit national ATM","url":"https://tondeursdemoutons.fr/concours/resultats-des-concours/"},{"key":"atm-2025-boussac","name":"Boussac 2025","country":"France","city":"Boussac","date":"2025-07-12","status":"Terminé","category":"Circuit national ATM","url":"https://tondeursdemoutons.fr/concours/resultats-des-concours/"},{"key":"atm-2025-martel","name":"Martel 2025","country":"France","city":"Martel","date":"2025-07-19","status":"Terminé","category":"Circuit national ATM","url":"https://tondeursdemoutons.fr/concours/resultats-des-concours/"},{"key":"atm-2025-bellac","name":"Bellac 2025","country":"France","city":"Bellac","date":"2025-09-04","status":"Terminé","category":"Circuit national ATM","url":"https://tondeursdemoutons.fr/concours/resultats-des-concours/"},{"key":"atm-2024-merle","name":"Merle 2024","country":"France","city":"Salon-de-Provence","date":"2024-04-06","status":"Terminé","category":"Circuit national ATM","url":"https://tondeursdemoutons.fr/concours/resultats-des-concours/"},{"key":"atm-2024-dorat","name":"Le Dorat 2024","country":"France","city":"Le Dorat","date":"2024-06-29","status":"Terminé","category":"Circuit national ATM","url":"https://tondeursdemoutons.fr/concours/resultats-des-concours/"},{"key":"atm-2024-martel","name":"Martel 2024","country":"France","city":"Martel","date":"2024-07-12","status":"Terminé","category":"Circuit national ATM","url":"https://tondeursdemoutons.fr/concours/resultats-des-concours/"},{"key":"atm-2024-rechicourt","name":"Réchicourt 2024","country":"France","city":"Réchicourt","date":"2024-08-03","status":"Terminé","category":"Circuit national ATM","url":"https://tondeursdemoutons.fr/concours/resultats-des-concours/"},{"key":"atm-2023-martel","name":"Martel 2023","country":"France","city":"Martel","date":"2023-07-14","status":"Terminé","category":"Circuit national ATM","url":"https://tondeursdemoutons.fr/concours/resultats-des-concours/"},{"key":"atm-2023-rambervillers","name":"Championnat de France 2023 — Rambervillers","country":"France","city":"Rambervillers","date":"2023-09-02","status":"Terminé","category":"Circuit national ATM","url":"https://tondeursdemoutons.fr/concours/resultats-des-concours/"},{"key":"atm-2023-bellac","name":"Bellac 2023","country":"France","city":"Bellac","date":"2023-09-07","status":"Terminé","category":"Circuit national ATM","url":"https://tondeursdemoutons.fr/concours/resultats-des-concours/"},{"key":"atm-2023-thones","name":"Thônes 2023","country":"France","city":"Thônes","date":"2023-10-29","status":"Terminé","category":"Circuit national ATM","url":"https://tondeursdemoutons.fr/concours/resultats-des-concours/"},{"key":"atm-2022-merle","name":"Le Merle 2022","country":"France","city":"Salon-de-Provence","date":"2022-03-26","status":"Terminé","category":"Circuit national ATM","url":"https://tondeursdemoutons.fr/concours/resultats-des-concours/"},{"key":"atm-2022-dorat","name":"Le Dorat 2022","country":"France","city":"Le Dorat","date":"2022-06-25","status":"Terminé","category":"Circuit national ATM","url":"https://tondeursdemoutons.fr/concours/resultats-des-concours/"},{"key":"atm-2022-martel","name":"Martel 2022","country":"France","city":"Martel","date":"2022-07-14","status":"Terminé","category":"Circuit national ATM","url":"https://tondeursdemoutons.fr/concours/resultats-des-concours/"},{"key":"atm-2022-triaize","name":"Championnat de France 2022 — Triaize","country":"France","city":"Triaize","date":"2022-07-30","status":"Terminé","category":"Circuit national ATM","url":"https://tondeursdemoutons.fr/concours/resultats-des-concours/"}],"rows":[["atm-2025-merle","Junior","Sean Dunne",1],["atm-2025-merle","Junior","Amandine Cheyssial",2],["atm-2025-merle","Junior","Noé Domise",3],["atm-2025-merle","Junior","Gustin Gros",4],["atm-2025-merle","Intermédiaire","Mikel Galvez",1],["atm-2025-merle","Intermédiaire","Thomas Bergougnoux",2],["atm-2025-merle","Intermédiaire","Louane Higelin",3],["atm-2025-merle","Intermédiaire","Maureen Cadet",4],["atm-2025-merle","Senior","Clémentine Demangeat",1],["atm-2025-merle","Senior","Alexis Chéry",2],["atm-2025-merle","Senior","Tanguy Heuzé",3],["atm-2025-merle","Senior","Lucie Grancher",4],["atm-2025-merle","Open","Loïc Leygonie",1],["atm-2025-merle","Open","Pierre Grancher",2],["atm-2025-merle","Open","Kevin Daniel",3],["atm-2025-merle","Open","Félix Cesbron",4],["atm-2025-boussac","Junior","Amandine Cheyssial",1],["atm-2025-boussac","Junior","Paul Hetroy",2],["atm-2025-boussac","Junior","Damien Raimundo",3],["atm-2025-boussac","Junior","Gabrielle Peyron",4],["atm-2025-boussac","Intermédiaire","Quentin Trompat",1],["atm-2025-boussac","Intermédiaire","Thomas Bergougnoux",2],["atm-2025-boussac","Intermédiaire","Cécile Valadier",3],["atm-2025-boussac","Intermédiaire","Xavier Sale",4],["atm-2025-boussac","Senior","Stéphane Celhabe",1],["atm-2025-boussac","Senior","Raoul Hodson",2],["atm-2025-boussac","Senior","Alexis Chéry",3],["atm-2025-boussac","Senior","Jessy Lunel",4],["atm-2025-boussac","Open","Toa Henderson",1],["atm-2025-boussac","Open","Jack Fagan",2],["atm-2025-boussac","Open","Jérémy Leygonie",3],["atm-2025-boussac","Open","Pierre Grancher",4],["atm-2025-martel","Junior","Amandine Cheyssial",1],["atm-2025-martel","Junior","Damien Viguié",2],["atm-2025-martel","Junior","Mateo Boucher",3],["atm-2025-martel","Junior","Marie Delpech",4],["atm-2025-martel","Intermédiaire","Xavier Sale",1],["atm-2025-martel","Intermédiaire","Maureen Cadet",2],["atm-2025-martel","Intermédiaire","Cécile Valadier",3],["atm-2025-martel","Intermédiaire","Noé Alayrac",4],["atm-2025-martel","Senior","Stéphane Celhabe",1],["atm-2025-martel","Senior","Alexis Chéry",2],["atm-2025-martel","Senior","Clémentine Demangeat",3],["atm-2025-martel","Senior","Kevin Blanchard",4],["atm-2025-martel","Open","Pierre Grancher",1],["atm-2025-martel","Open","Jérémy Leygonie",2],["atm-2025-martel","Open","Gilles Grancher",3],["atm-2025-martel","Open","Loïc Leygonie",4],["atm-2025-bellac","Junior","Amandine Cheyssial",1],["atm-2025-bellac","Junior","Noé Alayrac",2],["atm-2025-bellac","Junior","Damien Raimundo",3],["atm-2025-bellac","Junior","Gabrielle Peyron",4],["atm-2025-bellac","Intermédiaire","Xavier Sales",1],["atm-2025-bellac","Intermédiaire","Damien Viguier",2],["atm-2025-bellac","Intermédiaire","Cyril Hugues",3],["atm-2025-bellac","Intermédiaire","Maureen Cadet",4],["atm-2025-bellac","Senior","Andrew Rea",1],["atm-2025-bellac","Senior","Raoul Hodson",2],["atm-2025-bellac","Senior","Claude Robert",3],["atm-2025-bellac","Senior","Tanguy Charraud",4],["atm-2025-bellac","Open","Dylan Jones",1],["atm-2025-bellac","Open","Julien Sureau",2],["atm-2025-bellac","Open","Pierre Grancher",3],["atm-2025-bellac","Open","Gilles Grancher",4],["atm-2024-merle","Junior","Duane Gobet",1],["atm-2024-merle","Junior","Ingrid Voinson",2],["atm-2024-merle","Junior","Maureen Cadet",3],["atm-2024-merle","Junior","Thomas Bergougnoux",4],["atm-2024-merle","Intermédiaire","Tanguy Heuzé",1],["atm-2024-merle","Intermédiaire","Jessy Lunel",2],["atm-2024-merle","Intermédiaire","Quentin Trompat",3],["atm-2024-merle","Intermédiaire","Louane Higelin",4],["atm-2024-merle","Senior","Julien Sureau",1],["atm-2024-merle","Senior","Alexis Chéry",2],["atm-2024-merle","Senior","Lucie Grancher",3],["atm-2024-merle","Senior","Clémentine Demangeat",4],["atm-2024-merle","Open","Pierre Grancher",1],["atm-2024-merle","Open","Marco Gitenait",2],["atm-2024-merle","Open","Gilles Grancher",3],["atm-2024-merle","Open","Jérémy Leygonie",4],["atm-2024-dorat","Junior","Maureen Cadet",1],["atm-2024-dorat","Junior","Thomas Bergougnoux",2],["atm-2024-dorat","Junior","Damien Raimundo",3],["atm-2024-dorat","Junior","Ingrid Voinson",4],["atm-2024-dorat","Intermédiaire","Dorian Billy",1],["atm-2024-dorat","Intermédiaire","Clémentine Demangeat",2],["atm-2024-dorat","Intermédiaire","Jessy Lunel",3],["atm-2024-dorat","Intermédiaire","Cécile Valadier",4],["atm-2024-dorat","Senior","Julien Sureau",1],["atm-2024-dorat","Senior","Ryan Adams",2],["atm-2024-dorat","Senior","Alexis Chéry",3],["atm-2024-dorat","Senior","Alex Butler",4],["atm-2024-dorat","Open","Jérémy Leygonie",1],["atm-2024-dorat","Open","Gilles Grancher",2],["atm-2024-dorat","Open","Pierre Grancher",3],["atm-2024-dorat","Open","Étienne Marcel",4],["atm-2024-martel","Junior","Florent Billy",1],["atm-2024-martel","Junior","Mikel Galvez",2],["atm-2024-martel","Junior","Damien Raimundo",3],["atm-2024-martel","Junior","Amandine Cheyssial",4],["atm-2024-martel","Intermédiaire","Cécile Valadier",1],["atm-2024-martel","Intermédiaire","Dorian Billy",2],["atm-2024-martel","Intermédiaire","Jessy Lunel",3],["atm-2024-martel","Intermédiaire","Thomas Bergougnoux",4],["atm-2024-martel","Senior","Julien Sureau",1],["atm-2024-martel","Senior","Stéphane Celhabe",2],["atm-2024-martel","Senior","Dany Mauger",3],["atm-2024-martel","Senior","Clémentine Demangeat",4],["atm-2024-martel","Open","Jack Fagan",1],["atm-2024-martel","Open","Pierre Grancher",2],["atm-2024-martel","Open","Jérémy Leygonie",3],["atm-2024-martel","Open","Gilles Grancher",4],["atm-2024-rechicourt","Junior","Duane Gobet",1],["atm-2024-rechicourt","Junior","Ingrid Voinson",2],["atm-2024-rechicourt","Junior","Charlotte Gall",3],["atm-2024-rechicourt","Junior","Clara Damiens",4],["atm-2024-rechicourt","Intermédiaire","Jessy Lunel",1],["atm-2024-rechicourt","Intermédiaire","Anicet Parmentier",2],["atm-2024-rechicourt","Intermédiaire","Maureen Cadet",3],["atm-2024-rechicourt","Intermédiaire","Louane Higelin",4],["atm-2024-rechicourt","Senior","Mathieu Toussaint",1],["atm-2024-rechicourt","Senior","Stéphane Celhabe",2],["atm-2024-rechicourt","Senior","Félicien Saunois",3],["atm-2024-rechicourt","Senior","Claude Robert",4],["atm-2024-rechicourt","Open","Pierre Grancher",1],["atm-2024-rechicourt","Open","Jérémy Leygonie",2],["atm-2024-rechicourt","Open","Loïc Leygonie",3],["atm-2024-rechicourt","Open","Gilles Grancher",4],["atm-2023-martel","Junior","Louane Higelin",1],["atm-2023-martel","Junior","Thomas Bergougnoux",2],["atm-2023-martel","Junior","Maureen Cadet",3],["atm-2023-martel","Junior","Mikel Galvez",4],["atm-2023-martel","Intermédiaire","Tanguy Charraud",1],["atm-2023-martel","Intermédiaire","Cécile Valadier",2],["atm-2023-martel","Intermédiaire","Clémentine Demangeat",3],["atm-2023-martel","Intermédiaire","Iban Angoita",4],["atm-2023-martel","Senior","Baptiste Arcoutel",1],["atm-2023-martel","Senior","Ardigal Massoubre",2],["atm-2023-martel","Senior","Andrew Davidson",3],["atm-2023-martel","Senior","Sam McConnel",4],["atm-2023-martel","Open","Loïc Leygonie",1],["atm-2023-martel","Open","Thimoléon Resneau",2],["atm-2023-martel","Open","Gilles Grancher",3],["atm-2023-martel","Open","Loïc Jauberthie",4],["atm-2023-rambervillers","Junior","Jessy Lunel",1],["atm-2023-rambervillers","Junior","Mickaël Lombard",2],["atm-2023-rambervillers","Junior","Ingrid Voinson",3],["atm-2023-rambervillers","Junior","Charlotte Gall",4],["atm-2023-rambervillers","Intermédiaire","Tanguy Charraud",1],["atm-2023-rambervillers","Intermédiaire","Melissa Rafy",2],["atm-2023-rambervillers","Intermédiaire","Clémentine Demangeat",3],["atm-2023-rambervillers","Intermédiaire","Matthieu Wenske",4],["atm-2023-rambervillers","Senior","Ardigal Massoubre",1],["atm-2023-rambervillers","Senior","Paul Tavel",2],["atm-2023-rambervillers","Senior","Quentin Mathieu",3],["atm-2023-rambervillers","Senior","Alexis Chéry",4],["atm-2023-rambervillers","Open","Pierre Grancher",1],["atm-2023-rambervillers","Open","Jérémy Leygonie",2],["atm-2023-rambervillers","Open","Gilles Grancher",3],["atm-2023-rambervillers","Open","Loïc Leygonie",4],["atm-2023-bellac","Junior","Louane Higelin",1],["atm-2023-bellac","Junior","Ingrid Voinson",2],["atm-2023-bellac","Junior","Maureen Cadet",3],["atm-2023-bellac","Junior","Mateo Larrand",4],["atm-2023-bellac","Intermédiaire","Tanguy Charraud",1],["atm-2023-bellac","Intermédiaire","Rosalie Malet",2],["atm-2023-bellac","Intermédiaire","Nicolas Mary",3],["atm-2023-bellac","Intermédiaire","Steven Wilson",4],["atm-2023-bellac","Senior","Julien Sureau",1],["atm-2023-bellac","Senior","Ardigal Massoubre",2],["atm-2023-bellac","Senior","Baptiste Arcoutel",3],["atm-2023-bellac","Senior","Paul Robert",4],["atm-2023-bellac","Open","Pierre Grancher",1],["atm-2023-bellac","Open","Loïc Leygonie",2],["atm-2023-bellac","Open","Gilles Grancher",3],["atm-2023-bellac","Open","Étienne Marcel",4],["atm-2023-thones","Junior","Jessy Lunel",1],["atm-2023-thones","Junior","Damien Raimundo",2],["atm-2023-thones","Junior","Maureen Cadet",3],["atm-2023-thones","Junior","Ingrid Voinson",4],["atm-2023-thones","Intermédiaire","Clémentine Demangeat",1],["atm-2023-thones","Intermédiaire","Tanguy Charraud",2],["atm-2023-thones","Intermédiaire","Félicien Saunois",3],["atm-2023-thones","Intermédiaire","Louane Higelin",4],["atm-2023-thones","Senior","Alexis Chéry",1],["atm-2023-thones","Senior","Julien Sureau",3],["atm-2023-thones","Senior","Ardigal Massoubre",4],["atm-2023-thones","Open","Étienne Marcel",1],["atm-2023-thones","Open","Jérémy Leygonie",2],["atm-2023-thones","Open","Gilles Grancher",3],["atm-2023-thones","Open","Éléonore Resneau",4],["atm-2022-merle","Junior","Claire Salin",1],["atm-2022-merle","Junior","Clémentine Demangeat",2],["atm-2022-merle","Junior","Quentin Calvo",3],["atm-2022-merle","Junior","Corentin Laustriat",4],["atm-2022-merle","Intermédiaire","Benjamin Cuchet",1],["atm-2022-merle","Intermédiaire","William Clavel",2],["atm-2022-merle","Intermédiaire","Émilie Clavel",3],["atm-2022-merle","Intermédiaire","Laetitia Petroff",4],["atm-2022-merle","Senior","Salvo Marchese",1],["atm-2022-merle","Senior","Kevin Wuttke",2],["atm-2022-merle","Senior","Gaëlle Desseaux",3],["atm-2022-merle","Senior","Quentin Mathieu",4],["atm-2022-merle","Open","Gilles Grancher",1],["atm-2022-merle","Open","Pierre Grancher",2],["atm-2022-merle","Open","Thimoléon Resneau",3],["atm-2022-merle","Open","Jérémy Leygonie",4],["atm-2022-dorat","Junior","Clémentine Demangeat",1],["atm-2022-dorat","Junior","Claire Salin",2],["atm-2022-dorat","Junior","Lauriane Grancher",3],["atm-2022-dorat","Junior","Cécile Valadier",4],["atm-2022-dorat","Intermédiaire","William Clavel",1],["atm-2022-dorat","Intermédiaire","Louis Amadon",2],["atm-2022-dorat","Intermédiaire","Stéphane Celhabe",3],["atm-2022-dorat","Intermédiaire","Pauline Houguenague",4],["atm-2022-dorat","Senior","Pierre-Alain Demierre",1],["atm-2022-dorat","Senior","Ardigal Massoubre",2],["atm-2022-dorat","Senior","Julien Sureau",3],["atm-2022-dorat","Senior","Alexis Chéry",4],["atm-2022-dorat","Open","Pierre Grancher",1],["atm-2022-dorat","Open","Loïc Leygonie",2],["atm-2022-dorat","Open","Thimoléon Resneau",3],["atm-2022-dorat","Open","Christophe Riffaud",4],["atm-2022-martel","Junior","Cécile Valadier",1],["atm-2022-martel","Junior","Clémentine Demangeat",2],["atm-2022-martel","Junior","Kevin Poyet",3],["atm-2022-martel","Junior","Laurianne Grancher",4],["atm-2022-martel","Intermédiaire","Quentin Lloquet",1],["atm-2022-martel","Intermédiaire","William Clavel",2],["atm-2022-martel","Intermédiaire","Pauline Houguenague",3],["atm-2022-martel","Intermédiaire","Émilie Clavel",4],["atm-2022-martel","Senior","Baptiste Arcoutel",1],["atm-2022-martel","Senior","Pierre-Alain Demierre",2],["atm-2022-martel","Senior","Ardigal Massoubre",3],["atm-2022-martel","Senior","Raoul Hodson",4],["atm-2022-martel","Open","Loïc Leygonie",1],["atm-2022-martel","Open","Pierre Grancher",2],["atm-2022-martel","Open","Gilles Grancher",3],["atm-2022-martel","Open","Christophe Riffaud",4],["atm-2022-triaize","Junior","Tanguy Charraud",1],["atm-2022-triaize","Junior","Rosalie Mallet",2],["atm-2022-triaize","Junior","Quentin Calvo",3],["atm-2022-triaize","Junior","Damien Lieppe",4],["atm-2022-triaize","Intermédiaire","Kevin Poyet",1],["atm-2022-triaize","Intermédiaire","Lucas Wozniezko",2],["atm-2022-triaize","Intermédiaire","Cécile Valadier",3],["atm-2022-triaize","Intermédiaire","Charlotte Haag",4],["atm-2022-triaize","Senior","Pierre Demierre",1],["atm-2022-triaize","Senior","Julien Sureau",3],["atm-2022-triaize","Senior","Ardigal Massoubre",4],["atm-2022-triaize","Senior","Paul Tavel",5],["atm-2022-triaize","Open","Pierre Grancher",1],["atm-2022-triaize","Open","Loïc Leygonie",2],["atm-2022-triaize","Open","Marco Gitenait",3],["atm-2022-triaize","Open","Jérémy Leygonie",4]]};
+for(const h of atmOfficialImport.events){
+ let ev=data.events.find(e=>e.archiveKey===h.key)||data.events.find(e=>e.name===h.name&&e.date===h.date);
+ if(!ev){ev={...h,id:uid(),entries:[]};data.events.push(ev);}
+ Object.assign(ev,{...h,id:ev.id,archiveKey:h.key,entries:ev.entries||[],organizer:"Association des Tondeurs de Moutons (ATM)",disciplines:"Tonte machine — Junior, Intermédiaire, Senior, Open; autres épreuves selon concours",notes:"Classements individuels repris du registre officiel ATM. Les quatre premières places visibles sur la page ont été intégrées; consulter le PDF ATM pour le détail complet."});
+}
+for(const [key,category,name,rank] of atmOfficialImport.rows){
+ const ev=data.events.find(e=>e.archiveKey===key);if(!ev)continue;
+ const sig=`${key}|${category}|${name}`;
+ if(!data.results.some(r=>r.archiveKey===sig))data.results.push({id:uid(),eventId:ev.id,archiveKey:sig,category,round:"Classement officiel ATM",name,time:null,penalty:null,rank,points:0,status:"Validé",sourceUrl:"https://tondeursdemoutons.fr/concours/resultats-des-concours/",sourceLabel:"Classement officiel ATM — rang publié; points et temps non indiqués dans le tableau",createdAt:ev.date});
+}
+
+
+// Sélection officielle de l'équipe de France 2026 publiée par l'ATM.
+const atmSelection2026=[
+ ["Machine — équipe de France 2026","Pierre Grancher",1],
+ ["Machine — équipe de France 2026","Félix Cesbron",2],
+ ["Forces — équipe de France 2026","Loïc Jauberthie",1],
+ ["Forces — équipe de France 2026","Maureen Cadet",2],
+ ["Tri de laine — équipe de France 2026","Lucie Grancher",1],
+ ["Tri de laine — équipe de France 2026","Romain Picon",2]
+];
+let selectionEvent=data.events.find(e=>e.archiveKey==="atm-selection-2026");
+if(!selectionEvent){selectionEvent={id:uid(),archiveKey:"atm-selection-2026",name:"Sélection de l'équipe de France 2026",city:"France",country:"France",date:"2026-03-01",status:"Terminé",category:"Sélection nationale",sourceUrl:"https://tondeursdemoutons.fr/concours/resultats-des-concours/"};data.events.push(selectionEvent);}
+for(const [category,name,rank] of atmSelection2026){
+ const sig=`atm-selection-2026|${category}|${name}`;
+ if(!data.results.some(r=>r.archiveKey===sig))data.results.push({id:uid(),eventId:selectionEvent.id,archiveKey:sig,category,round:"Sélection officielle ATM",name,time:null,penalty:null,rank,points:0,status:"Validé",sourceUrl:"https://tondeursdemoutons.fr/concours/resultats-des-concours/",sourceLabel:"Sélection officielle équipe de France 2026 — ATM",createdAt:"2026-03-01"});
+}
+
+
+// Compléments d'archives vérifiés : Martel 2021 (places explicitement publiées).
+const atm2021Event={key:"atm-2021-martel",name:"Martel — Fête des Tondailles 2021",country:"France",city:"Martel",date:"2021-07-14",status:"Terminé",category:"Circuit national ATM",url:"https://www.ladepeche.fr/2021/07/23/lot-a-martel-la-fete-des-tondailles-a-sacre-ses-champions-de-tonte-de-brebis-9687864.php"};
+if(!data.events.some(e=>e.archiveKey===atm2021Event.key)){
+ const ev={id:uid(),archiveKey:atm2021Event.key,name:atm2021Event.name,country:"France",city:"Martel",date:atm2021Event.date,status:"Terminé",category:atm2021Event.category,organizer:"ATM",sourceUrl:atm2021Event.url,notes:"Résultats partiels publiés dans La Dépêche du 23 juillet 2021."};data.events.push(ev);
+ const rows=[["Senior","Gaspard Kicki",1],["Senior","Baptiste Arcoutel",2]];
+ for(const [category,name,rank] of rows){const sig=`${atm2021Event.key}|${category}|${name}`;if(!data.results.some(r=>r.archiveKey===sig))data.results.push({id:uid(),eventId:ev.id,archiveKey:sig,category,round:"Finale publiée",name,rank,points:0,time:null,status:"Validé",sourceUrl:atm2021Event.url,sourceLabel:"La Dépêche — résultat publié",createdAt:ev.date});}
+}
+// Répertoire complet des 51 participants annoncés au Dorat 2022 : présence au concours,
+// sans leur attribuer de rang lorsqu'aucun rang individuel n'est publié.
+const doratRoster=[
+["Louis Amadon","Allier"],["William Clavel","Allier"],["Emmanuel Marche","Allier"],["Benjamin Mazerolles","Allier"],
+["Zoé Belliard","Alpes-de-Haute-Provence"],["Gilles Grancher","Alpes-de-Haute-Provence"],["Thimoléon Resneau","Aude"],["Alice Anges","Ardèche"],["Urbain Van Laeys","Calvados"],["Florian Campain","Charente"],["Jay Court","Charente"],["Alexis Chéry","Cher"],["Claire Salin","Cher"],["Quentin Trompat","Cher"],["Adèle Lemercier","Côtes-d'Armor"],["Lauriane Grancher","Creuse"],["Pierre Grancher","Creuse"],["Pierre Judet","Creuse"],["Anne-Claire Pegorado","Creuse"],["Valentin Guichard","Deux-Sèvres"],["Quentin Lllouquet","Dordogne"],["Ardigal Massoubre","Dordogne"],["Clémentine Demangeat","Haute-Loire"],["Dorian Billy","Haute-Vienne"],["Félix Cesbron","Haute-Vienne"],["Tanguy Charraud","Haute-Vienne"],["Julien Dincq","Haute-Vienne"],["Joseph Elliott","Haute-Vienne"],["Fabien Forgeaud","Haute-Vienne"],["Raoul Hodson","Haute-Vienne"],["Pauline Houguenague","Haute-Vienne"],["Hugues Lachaume","Haute-Vienne"],["Gabriel Pierson","Haute-Vienne"],["Christophe Riffaud","Haute-Vienne"],["Julien Sureau","Haute-Vienne"],["Élodie Szczepaniak","Haute-Vienne"],["Cécile Valadier","Haute-Vienne"],["Ludovic Varachaud","Haute-Vienne"],["Corentin Plançon","Isère"],["Étienne Marcel","Loire"],["Théo Marcel","Loire"],["Loïc Jauberthie","Lot"],["Gaspard Kicki","Lot"],["Jérémy Leygonie","Lot"],["Loïc Leygonie","Lot"],["Pierre-Alain Demierre","Maine-et-Loire"],["Quentin Calvo","Meuse"],["Lucie Monette","Nièvre"],["Stéphane Celhabe","Pyrénées-Atlantiques"],["Rosalie Mallet","Val-d'Oise"],["Camille Manssot","Vienne"]
+];
+for(const [name,department] of doratRoster){let rider=data.riders.find(x=>x.name.toLocaleLowerCase("fr")===name.toLocaleLowerCase("fr"));if(!rider){rider={id:uid(),name,country:"France",department,source:"Liste officielle des participants — Le Dorat 2022",events:[]};data.riders.push(rider);}else{rider.department=rider.department||department;rider.source=rider.source||"Liste officielle des participants — Le Dorat 2022";}}
+
+const histRows=[
+ ["martel-2026","Championnat de France Open","Jérémy Leygonie",2],["martel-2026","Concours international Open","Loïc Leygonie",3],["martel-2026","Concours international Open","Jérémy Leygonie",4],["martel-2026","Championnat de France Open","Loïc Jauberthie",4],["martel-2026","Championnat de France Open","Loïc Leygonie",5],["martel-2026","Junior","Noë Alayrac",1],["martel-2026","Intermédiaire","Damien Viguié",1],["martel-2026","Intermédiaire","Thomas Bergougnoux",3],["martel-2026","Tonte aux forces","Loïc Jauberthie",1],
+ ["dorat-2022","Junior","Clémentine Demangeat",1],["dorat-2022","Junior","Claire Salin",2],["dorat-2022","Junior","Lauriane Grancher",3],["dorat-2022","Junior","Cécile Valadier",4],["dorat-2022","Intermédiaire","William Clavel",1],["dorat-2022","Intermédiaire","Pauline Houguenague",2],["dorat-2022","Intermédiaire","Louis Amadon",3],["dorat-2022","Intermédiaire","Stéphane Celhabe",4],["dorat-2022","Senior","Pierre-Alain Demierre",1],["dorat-2022","Senior","Ardigal Massoubre",2],["dorat-2022","Senior","Julien Sureau",3],["dorat-2022","Senior","Alexis Chéry",4],["dorat-2022","Open","Pierre Grancher",1],["dorat-2022","Open","Loïc Leygonie",2],["dorat-2022","Open","Thimoléon Resneau",3],["dorat-2022","Open","Christophe Riffaud",4],["dorat-2022","Tri de laine","Adèle Lemercier",1],["dorat-2022","Tri de laine","Zoé Belliard",2],
+ ["france-2019","Tonte aux forces","Loïc Jauberthie",1],["france-2019","Tonte aux forces","Reinhard Poppe",2],["france-2019","Tonte aux forces","Frédéric Dussault",3],["france-2019","Tonte aux forces","Quentin Mathieu",4],["france-2019","Tonte aux forces","Nicolas Poupinel",5],["france-2019","Tonte aux forces","Didier Gitenait",6],["france-2019","Tri de laine","Lucie Grancher",1],["france-2019","Tri de laine","Cécile Valadier",2],["france-2019","Tri de laine","Adèle Lemercier",3],["france-2019","Open","Christophe Riffaud",1],["france-2019","Open","Thimoléon Resneau",2],["france-2019","Open","Loïc Leygonie",3],["france-2019","Open","Pierre Grancher",4],["france-2019","Open","Loïc Jauberthie",5],["france-2019","Open","Jérémy Leygonie",6],
+ ["martel-2023","Junior","Thomas Bergougnoux",2],["martel-2023","Intermédiaire","Cécile Valadier",2],["martel-2023","Senior","Baptiste Arcoutel",1],["martel-2023","Tonte aux forces","Loïc Jauberthie",1],["martel-2023","Open","Loïc Leygonie",1],
+ ["agrimax-2023","Senior / Open","Toussaint Mathieu",1],["agrimax-2023","Senior / Open","Pasquer Maxime",2],["agrimax-2023","Senior / Open","Duchaux Henri",3],["agrimax-2023","Junior / Intermédiaire","Lombard Mickael",1],["agrimax-2023","Junior / Intermédiaire","Sirjacques Marceau",2],["agrimax-2023","Junior / Intermédiaire","Voison Ingrid",3]
+ ,
+ ["alexandra-2026","Open tonte machine","Duncan Leslie",1],["alexandra-2026","Open tonte machine","David Gordon",2],["alexandra-2026","Open tonte machine","Nathan Stratford",3],["alexandra-2026","Open tonte machine","Jack Fagan",4],["alexandra-2026","Open tonte machine","Simon Goss",5],["alexandra-2026","Open tonte machine","Grant Smith",6],
+ ["alexandra-2026","Senior tonte machine","Cody Waihape",1],["alexandra-2026","Senior tonte machine","Tye Meikle",2],["alexandra-2026","Senior tonte machine","Reuben O’Neill",3],["alexandra-2026","Senior tonte machine","Levi Uluakiahoia",4],["alexandra-2026","Senior tonte machine","Kyle Rhodes",5],["alexandra-2026","Senior tonte machine","Jadas Guelphi",6],
+ ["alexandra-2026","Open tri de laine","Monica Potae",1],["alexandra-2026","Open tri de laine","Pagan Rimene",2],["alexandra-2026","Open tri de laine","Misty Rose Kokiri Elers",3],["alexandra-2026","Open tri de laine","Foonie Waihape",4],
+ ["alexandra-2026","Senior tri de laine","Chiquita Tamepo",1],["alexandra-2026","Senior tri de laine","Marama Timmins",2],["alexandra-2026","Senior tri de laine","Lucy Elers",3],["alexandra-2026","Senior tri de laine","Ashley Clarke",4],
+ ["alexandra-2026","Junior tri de laine","Lilly Manson",1],["alexandra-2026","Junior tri de laine","Legacy Hiroti",2],["alexandra-2026","Junior tri de laine","Shay Stewart",3],["alexandra-2026","Junior tri de laine","Shahni Whitu",4],
+ ["waimate-2026","Open tonte machine","Leon Samuels",1],["waimate-2026","Open tonte machine","Justin Meikle",2],["waimate-2026","Open tonte machine","Gavin Mutch",3],["waimate-2026","Open tonte machine","Hemi Braddick",4],["waimate-2026","Open tonte machine","Ant Frew",5],["waimate-2026","Open tonte machine","Corey Palmer",6],
+ ["golden-shears-2026","Open shearing final","Toa Henderson",1],["golden-shears-2026","Open shearing final","Gavin Mutch",2],["golden-shears-2026","Open shearing final","Leon Samuels",3],
+ ["golden-shears-2026","World shearing final","Rowland Smith",1],["golden-shears-2026","World shearing final","Toa Henderson",2],["golden-shears-2026","World shearing final","Gavin Mutch",3],["golden-shears-2026","World shearing final","Llyr Jones",4],["golden-shears-2026","World shearing final","Gwion Evans",5],["golden-shears-2026","World shearing final","Denis O’Sullivan",6],
+ ["golden-shears-2026","World teams B final","Noel Gardiner",1],["golden-shears-2026","World teams B final","Max Winders",1],["golden-shears-2026","World teams B final","Jérémy Leygonie",2],["golden-shears-2026","World teams B final","Félix Cesbron",2],["golden-shears-2026","World teams B final","Denis O’Sullivan",3],["golden-shears-2026","World teams B final","Patrick Corrigan",3]
+];
+for(const [key,category,name,rank] of histRows){const ev=data.events.find(x=>x.archiveKey===key);if(!ev)continue;const sig=`${key}|${category}|${name}`;if(!data.results.some(r=>r.archiveKey===sig))data.results.push({id:uid(),eventId:ev.id,archiveKey:sig,category,round:"Classement publié",name,time:null,penalty:null,rank,points:0,status:"Validé",sourceUrl:ev.url,sourceLabel:"Résultat publié — points et temps non communiqués",createdAt:ev.date});} 
+// Registre public des 51 inscrits au Dorat 2022 (liste publiée par département).
+// Tout compétiteur présent dans un résultat est aussi indexé dans le registre de recherche.
+for(const r of data.results){if(!r.name)continue;let rider=data.riders.find(x=>x.name.toLocaleLowerCase('fr')===r.name.toLocaleLowerCase('fr'));if(!rider){rider={id:uid(),name:r.name,country:/^(Rowland|Toa|Gavin|Llyr|Gwion|Matt|Nicholas|Leon|Hemi|Joel|Keryn|Pagan|Foonie|Monica|Duncan|David|Nathan|Jack|Simon|Grant|Justin|Ant)\b/i.test(r.name)?"International":"À confirmer",source:"Résultat de compétition publié",events:[]};data.riders.push(rider);}if(!rider.events)rider.events=[];const ev=data.events.find(e=>e.id===r.eventId);if(ev&&!rider.events.includes(ev.name))rider.events.push(ev.name);}
+const world2026Details={
+ "golden-shears-2026|Open shearing final|Toa Henderson":{time:"16:13.228",points:56.11},
+ "golden-shears-2026|Open shearing final|Gavin Mutch":{time:"15:59.996",points:56.65},
+ "golden-shears-2026|Open shearing final|Leon Samuels":{points:57.30},
+ "golden-shears-2026|World shearing final|Rowland Smith":{time:"17:15.670",points:60.784},
+ "golden-shears-2026|World shearing final|Toa Henderson":{time:"16:40.349",points:63.467},
+ "golden-shears-2026|World shearing final|Gavin Mutch":{time:"17:23.219",points:64.011},
+ "golden-shears-2026|World shearing final|Llyr Jones":{time:"17:53.349",points:69.017},
+ "golden-shears-2026|World shearing final|Gwion Evans":{time:"18:30.268",points:69.313},
+ "golden-shears-2026|World shearing final|Denis O’Sullivan":{time:"18:54.244",points:71.662}
+};
+const nzPublishedDetails={
+ "alexandra-2026|Open tonte machine|Duncan Leslie":{time:"24:12.28",points:94.781},
+ "alexandra-2026|Open tonte machine|David Gordon":{time:"23:11.55",points:103.245},
+ "alexandra-2026|Open tonte machine|Nathan Stratford":{time:"25:45.64",points:105.699},
+ "alexandra-2026|Open tonte machine|Jack Fagan":{time:"25:06.38",points:109.236},
+ "alexandra-2026|Open tonte machine|Simon Goss":{time:"27:50.77",points:126.123},
+ "alexandra-2026|Open tonte machine|Grant Smith":{time:"31:30.11",points:143.423},
+ "waimate-2026|Open tonte machine|Leon Samuels":{time:"16:24.00",points:54.089},
+ "waimate-2026|Open tonte machine|Justin Meikle":{time:"16:29.22",points:57.461},
+ "waimate-2026|Open tonte machine|Gavin Mutch":{time:"17:38.53",points:59.316},
+ "waimate-2026|Open tonte machine|Hemi Braddick":{time:"17:50.89",points:60.601},
+ "waimate-2026|Open tonte machine|Ant Frew":{time:"18:25.80",points:61.012},
+ "waimate-2026|Open tonte machine|Corey Palmer":{time:"18:49.66",points:62.205}
+};
+ 
+Object.assign(nzPublishedDetails,{
+ "alexandra-2026|Open tri de laine|Monica Potae":{points:195.02},
+ "alexandra-2026|Open tri de laine|Pagan Rimene":{points:196.324},
+ "alexandra-2026|Open tri de laine|Misty Rose Kokiri Elers":{points:201.044},
+ "alexandra-2026|Open tri de laine|Foonie Waihape":{points:297.8},
+ "alexandra-2026|Senior tri de laine|Chiquita Tamepo":{points:124.674},
+ "alexandra-2026|Senior tri de laine|Marama Timmins":{points:132.982},
+ "alexandra-2026|Senior tri de laine|Lucy Elers":{points:179.15},
+ "alexandra-2026|Senior tri de laine|Ashley Clarke":{points:190.47},
+ "alexandra-2026|Junior tri de laine|Lilly Manson":{points:134.25},
+ "alexandra-2026|Junior tri de laine|Legacy Hiroti":{points:236.47},
+ "alexandra-2026|Junior tri de laine|Shay Stewart":{points:237.79},
+ "alexandra-2026|Junior tri de laine|Shahni Whitu":{points:250.41}
+});
+for(const r of data.results){const key=r.archiveKey;const detail=world2026Details[key]||nzPublishedDetails[key];if(detail){if(detail.time)r.time=detail.time;r.points=detail.points;r.sourceLabel="Temps et points publiés";}}
+
+
+function save(){
+ try{
+  data.schemaVersion=3;
+  localStorage.setItem("sf_v1",JSON.stringify(data));
+  const status=$("saveStatus"); if(status) status.textContent="✓ Sauvegarde locale enregistrée";
+  return true;
+ }catch(err){
+  const status=$("saveStatus"); if(status) status.textContent="⚠ Sauvegarde impossible";
+  console.error("Sauvegarde Shearing France impossible",err);
+  alert("La sauvegarde a échoué (espace disponible ou navigateur). Exporte tes données avant de continuer.");
+  return false;
+ }
+}
+function eventSeason(r){
+ const event=data.events.find(e=>e.id===r.eventId);
+ const date=event?.date||r.createdAt||"";
+ const year=String(date).slice(0,4);
+ return /^\\d{4}$/.test(year)?year:"";
+}
+function resultIdentity(r){
+ return [r.eventId||"hors-concours",(r.category||"Open").toLowerCase(),(r.round||"").trim().toLowerCase(),(r.name||"").trim().toLowerCase()].join("::");
+}
+const $=id=>document.getElementById(id);
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function show(page){
+ document.querySelectorAll(".page").forEach(x=>x.classList.toggle("hidden",x.id!==page));
+ document.querySelectorAll(".nav button").forEach(x=>x.classList.toggle("active",x.dataset.page===page));
+ try{
+  if(page==="home")renderHome();
+  if(page==="events")renderEvents();
+  if(page==="history")renderHistory();
+  if(page==="competitors")renderCompetitorSearch();
+  if(page==="training")renderTraining();
+  if(page==="rank")renderRank();
+  if(page==="live")renderLive();
+  if(page==="profile")renderProfile();
+ }catch(err){console.error("Erreur d’affichage de la rubrique "+page,err);}
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+function renderHome(){
+$("eventCount").textContent=data.events.length;$("riderCount").textContent=data.riders.length;
+if($("featured"))$("featured").innerHTML=data.events.slice(0,2).map(e=>`<article class="event"><span class="tag ${e.status==="À venir"?"green":"gold"}">${esc(e.status)}</span><h3>${esc(e.name)}</h3><div class="muted small">${esc(e.city)} · ${esc(e.country)}</div><p class="small">${e.date?new Date(e.date+"T12:00:00").toLocaleDateString("fr-FR"):"Date à confirmer"}</p><button class="btn ghost" onclick="show('events')">Voir le concours</button></article>`).join("");
+if($("latest"))$("latest").innerHTML=data.results.length?data.results.slice(-4).reverse().map(r=>`<div class="item"><div class="grow"><b>${esc(r.name)}</b><span class="muted small">${esc(r.time)} s · ${r.penalty} pénalité(s)</span></div><span class="tag ${r.status==="Validé"?"green":"gold"}">${esc(r.status)}</span></div>`).join(""):"<p class='muted'>Aucun résultat importé pour le moment.</p>";
+const own=data.results.filter(r=>r.status==="Validé"&&r.name.trim().toLowerCase()===data.profile.name.trim().toLowerCase()).slice(-3).reverse();if($("homeRecentResults"))$("homeRecentResults").innerHTML=own.length?own.map(r=>`<div class="sf-result-row"><span>${esc(data.events.find(e=>e.id===r.eventId)?.name||"Résultat")}</span><b>${r.rank?`#${r.rank}`:"Validé"} · ${Number(r.points)||0} pts</b></div>`).join(""):"<span class='muted small'>Aucune performance validée pour le moment.</span>";
+}
+function renderCompetitorSearch(){
+ const input=$("competitorSearch");if(!input)return;
+ const q=(input.value||"").trim().toLocaleLowerCase("fr");
+ const out=$("competitorSearchResults"),count=$("competitorSearchCount");
+ const riderMatches=(data.riders||[]).filter(r=>[r.name,r.country,r.club,r.department,(r.events||[]).join(" ")].join(" ").toLocaleLowerCase("fr").includes(q));
+ const matches=data.results.map(r=>{const ev=data.events.find(e=>e.id===r.eventId)||{};return {...r,eventName:ev.name||r.eventName||"Compétition non précisée",country:r.country||ev.country||"",date:ev.date||r.date||"",city:ev.city||ev.venue||""};}).filter(r=>!q||[r.name,r.country,r.category,r.eventName,r.city,r.status].join(" ").toLocaleLowerCase("fr").includes(q)).sort((a,b)=>(b.date||"").localeCompare(a.date||"")||(Number(a.rank)||999)-(Number(b.rank)||999));
+ const profiles=riderMatches.map(r=>`<article class="item"><div class="rank">👤</div><div class="grow"><b>${esc(r.name)}</b><span class="muted small">${esc(r.country||"Pays non renseigné")} ${r.department?"· "+esc(r.department):""} · ${esc(r.source||"Profil issu des résultats publiés")}</span></div><button class="profile-open" onclick="openCompetitorProfile('${String(r.id).replace("'","")}')">Voir la fiche ↗</button></article>`).join("");
+ const rows=matches.map(r=>{const rider=data.riders.find(x=>x.name.toLocaleLowerCase("fr")===String(r.name||"").toLocaleLowerCase("fr"));return `<article class="item"><div class="rank">${r.rank?("#"+esc(String(r.rank))):"—"}</div><div class="grow"><b>${esc(r.name||"Nom non renseigné")}</b><span class="muted small">${esc(r.eventName)} · ${esc(r.category||"Catégorie non précisée")} · ${esc(r.country||"Pays non renseigné")}</span><span class="muted small">${r.points!==undefined&&r.points!==""?esc(String(r.points))+" points · ":""}${esc(r.status||"Archive")}</span></div>${rider?`<button class="profile-open" onclick="openCompetitorProfile('${String(rider.id).replace("'","")}')">Fiche ↗</button>`:""}</article>`}).join("");
+ count.textContent=(q?"Recherche : "+q+" · ":"Annuaire complet · ")+riderMatches.length+" profil(s) · "+matches.length+" résultat(s)";
+ out.innerHTML=(profiles+rows)||"<p class='muted'>Aucun résultat trouvé. Essaie un nom, une ville, un pays ou une compétition.</p>";
+}
+
+// Palmarès individuels vérifiés à partir de sources publiques ; les inconnues restent signalées.
+const knownProfiles={
+"loïc leygonie":{country:"France",department:"Lot",bio:"Tondeur professionnel du Lot, issu d'une famille de tondeurs. Le Département du Lot le présente comme triple champion de France et membre de l'équipe de France au championnat du monde 2017.",highlights:["Champion de France 2018 — tonte machine","Vainqueur Open — Fête des Tondailles 2023","3e Open international — Martel 2026","5e Championnat de France Open — Martel 2026","Membre de l'équipe de France au Mondial 2017"],sources:[["Département du Lot — portrait et titres nationaux","https://lot.fr/node/269279"],["Médialot — titre de champion de France 2018","https://medialot.fr/mayrac-baladou-loic-leygonie-champion-de-france-de-tonte-de-moutons-et-8000-visiteurs-a-terre-en-fete/"],["Défense Paysanne du Lot — Martel 2026","https://defensepaysannedulot.fr/2026/08/24/les-tondailles-2026-une-edition-exceptionnelle-au-service-de-la-filiere-ovine-et-du-pastoralisme/"]] },
+"jérémy leygonie":{country:"France",department:"Lot",bio:"Compétiteur français de tonte machine. Les classements publics retrouvés documentent plusieurs résultats nationaux et sa participation à l'équipe française B aux Golden Shears 2026.",highlights:["2e Championnat de France Open — Martel 2026","4e concours international Open — Martel 2026","2e équipe France B — Golden Shears 2026, avec Félix Cesbron","6e Open — Championnat de France 2019"],sources:[["Défense Paysanne du Lot — Martel 2026","https://defensepaysannedulot.fr/2026/08/24/les-tondailles-2026-une-edition-exceptionnelle-au-service-de-la-filiere-ovine-et-du-pastoralisme/"],["Shearing Sports NZ — résultats mondiaux 2026","https://www.shearingsports.co.nz/page/media/"]] },
+"clémentine demangeat":{country:"France",department:"Haute-Loire",bio:"Compétitrice française. Les résultats publics confirment sa victoire en Junior au Dorat 2022. Un article de 2026 la mentionne également sixième du dernier championnat de France, sans détailler la catégorie.",highlights:["1re Junior — Le Dorat 2022","6e du dernier championnat de France (mention publiée en 2026 ; catégorie à confirmer)"],sources:[["Alliance Élevage — résultats du Dorat 2022","https://www.alliance-elevage.com/informations/actualite/resultats-concours-de-tonte-de-moutons-le-dorat"],["Haut-Bocage — mention du championnat de France","https://www.haut-bocage.fr/2026/belle-reussite-pour-la-foire-aux-moutons-de-louroux/"]] },
+"loïc jauberthie":{country:"France",department:"Lot",bio:"Compétiteur français en tonte aux forces et tonte machine. Les archives retrouvées documentent plusieurs victoires.",highlights:["1er Tonte aux forces — Championnat de France 2019","1er Tonte aux forces — Martel 2023","1er Tonte aux forces — Martel 2026","4e Championnat de France Open — Martel 2026"],sources:[["Alliance Élevage — archives 2019","https://www.alliance-elevage.com/informations/actualite/tonte-ils-sont-champions-de-france"],["Défense Paysanne du Lot — Martel 2026","https://defensepaysannedulot.fr/2026/08/24/les-tondailles-2026-une-edition-exceptionnelle-au-service-de-la-filiere-ovine-et-du-pastoralisme/"]] },
+"rowland smith":{country:"Nouvelle-Zélande",bio:"Tondeur néo-zélandais, champion du monde Open de tonte machine aux Golden Shears 2026.",highlights:["1er — World Shearing Final 2026 : 60,784 points, 17 min 15,670 s","1er — équipe Nouvelle-Zélande, finale mondiale par équipes 2026"],sources:[["Shearing Sports NZ — résultats mondiaux 2026","https://www.shearingsports.co.nz/page/media/"],["Golden Shears — finale mondiale 2026","https://clip.goldenshears.co.nz/Plain/Results/f5a0bedd-b26e-4900-b534-a7c8512a8b9f"]] },
+"toa henderson":{country:"Nouvelle-Zélande",bio:"Tondeur néo-zélandais, vainqueur de la finale Open des Golden Shears 2026 et vice-champion du monde 2026.",highlights:["1er — Open Shearing Final 2026 : 56,111 points","2e — World Shearing Final 2026 : 63,467 points","1er — équipe Nouvelle-Zélande, finale mondiale par équipes 2026"],sources:[["Golden Shears — finale Open 2026","https://clip.goldenshears.co.nz/Plain/Results/82a27429-27d8-4bbc-b5fa-0392cbfdc111"],["Shearing Sports NZ — résultats mondiaux 2026","https://www.shearingsports.co.nz/page/media/"]] },
+"gavin mutch":{country:"Écosse",bio:"Tondeur écossais classé sur le podium mondial Open 2026.",highlights:["3e — World Shearing Final 2026 : 64,011 points","2e — Open Shearing Final 2026 : 56,650 points"],sources:[["Shearing Sports NZ — résultats mondiaux 2026","https://www.shearingsports.co.nz/page/media/"],["Golden Shears — finale Open 2026","https://clip.goldenshears.co.nz/Plain/Results/82a27429-27d8-4bbc-b5fa-0392cbfdc111"]] },
+"jack fagan":{country:"Nouvelle-Zélande",bio:"Tondeur néo-zélandais. Vainqueur de la finale Open Speed Shearing aux Golden Shears 2026.",highlights:["1er — Open Speed Shearing Final 2026 : 19,345 secondes"],sources:[["Golden Shears — finale Open Speed 2026","https://clip.goldenshears.co.nz/Plain/Results/4f1022bd-5e59-48ac-b6d5-d7c104cef65e"]] },
+"joel henare":{country:"Nouvelle-Zélande",bio:"Compétiteur néo-zélandais de tri de laine. Vainqueur de la finale Open Woolhandling aux Golden Shears 2026.",highlights:["1er — Open Woolhandling Final 2026 : 122,89 points"],sources:[["Golden Shears — finale Open Woolhandling 2026","https://clip.goldenshears.co.nz/Plain/Results/74b81e1f-85a7-475c-a29b-99a426798c9b"]] },
+"bonile rabela":{country:"Afrique du Sud",bio:"Champion sud-africain de tonte aux forces. Le ministère sud-africain de l'Agriculture confirme qu'il a conservé son titre mondial en 2026.",highlights:["1er — World Blade Shearing Final 2026","Champion du monde de tonte aux forces 2026 — titre conservé","Médaille d'argent par équipes et médailles en All Nations 2026"],sources:[["Ministère sud-africain de l'Agriculture — communiqué du 11 mars 2026","https://www.nda.gov.za/images/Newsroom/Media%20Releases/2026/media-statement-minister-steenhuisen-applauds-south-africas-golden-shears-victory.pdf"],["Golden Shears — finale World Blade 2026","https://clip.goldenshears.co.nz/Plain/Results/4fd1150f-b18f-4591-aaf3-2b6a2ecff506"]] }
+};
+function openCompetitorProfile(id){
+ const rider=data.riders.find(x=>String(x.id)===String(id));if(!rider)return;
+ const key=String(rider.name||"").trim().toLocaleLowerCase("fr"),known=knownProfiles[key]||{};
+ const records=data.results.filter(r=>String(r.name||"").trim().toLocaleLowerCase("fr")===key).map(r=>({...r,event:data.events.find(e=>e.id===r.eventId)})).sort((a,b)=>(b.event?.date||b.createdAt||"").localeCompare(a.event?.date||a.createdAt||"")||(Number(a.rank)||999)-(Number(b.rank)||999));
+ const wins=records.filter(r=>Number(r.rank)===1).length,podiums=records.filter(r=>Number(r.rank)>=1&&Number(r.rank)<=3).length;
+ const sources=(known.sources||[]).map(x=>`<li><a class="event-link" href="${esc(x[1])}" target="_blank" rel="noopener">${esc(x[0])} ↗</a></li>`).join("");
+ const rows=records.map(r=>`<tr><td>${esc(r.event?.name||"Archive")}</td><td>${esc(r.category||"—")}</td><td><b>${r.rank?"#"+esc(String(r.rank)):"—"}</b></td><td>${r.points?esc(String(r.points))+" pts":"—"}</td><td>${r.time?esc(String(r.time)):"—"}</td></tr>`).join("");
+ const target=$("competitorProfileDetail");target.innerHTML=`<section class="profile-card"><div class="profile-head"><div style="display:flex;align-items:center;gap:12px"><div class="profile-mark">${esc((rider.name||"?").trim().charAt(0).toUpperCase())}</div><div><div class="sf-kicker">FICHE COMPÉTITEUR</div><h2 style="margin:3px 0">${esc(rider.name)}</h2><div class="muted small">${esc(known.country||rider.country||"Pays non renseigné")}${(known.department||rider.department)?" · "+esc(known.department||rider.department):""}</div></div></div><button class="profile-open" onclick="document.getElementById('competitorProfileDetail').innerHTML=''">Fermer ✕</button></div><p>${esc(known.bio||"Aucune biographie vérifiée disponible. Les résultats ci-dessous proviennent des archives intégrées à l'application.")}</p><div class="profile-stats"><div class="profile-stat"><b>${records.length}</b><span class="small">résultats archivés</span></div><div class="profile-stat"><b>${wins}</b><span class="small">victoires archivées</span></div><div class="profile-stat"><b>${podiums}</b><span class="small">podiums archivés</span></div></div>${known.highlights?.length?`<h3>Palmarès documenté</h3><ul>${known.highlights.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:""}<h3>Résultats enregistrés</h3>${rows?`<div style="overflow-x:auto"><table class="profile-results"><thead><tr><th>Compétition</th><th>Catégorie</th><th>Place</th><th>Points</th><th>Temps</th></tr></thead><tbody>${rows}</tbody></table></div>`:"<p class='muted small'>Aucun résultat individuel détaillé relié à cette fiche.</p>"}<h3>Sources et vérification</h3>${sources?`<ul class="profile-source">${sources}</ul>`:"<p class='profile-source'>Aucune source biographique nominative supplémentaire retrouvée pour le moment. Pas de palmarès inventé.</p>"}</section>`;target.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function renderRank(){
+ const seasonSelect=$("rankSeason");if(seasonSelect){const selected=seasonSelect.value||"all";const years=[...new Set(data.results.filter(r=>r.status==="Validé").map(r=>String(r.createdAt||"").slice(0,4)).filter(y=>/^\d{4}$/.test(y)))].sort().reverse();seasonSelect.innerHTML="<option value=\"all\">Toutes saisons</option>"+years.map(y=>`<option value=\"${y}\">${y}</option>`).join("");seasonSelect.value=years.includes(selected)?selected:"all";}
+ const q=$("rankSearch").value.toLowerCase(),scope=$("rankScope").value,cat=$("rankCategory")?.value||"all",season=$("rankSeason")?.value||"all";
+ const valid=data.results.filter(r=>r.status==="Validé"&&(cat==="all"||(r.category||"Open")===cat)&&(season==="all"||eventSeason(r)===season));
+ const names=[...new Set(valid.map(r=>r.name.trim()))];
+ let arr=names.map(name=>{const rs=valid.filter(r=>r.name.trim().toLowerCase()===name.toLowerCase());const points=rs.reduce((n,r)=>n+(Number(r.points)||0),0);const wins=rs.filter(r=>Number(r.rank)===1).length;const podiums=rs.filter(r=>Number(r.rank)>=1&&Number(r.rank)<=3).length;const evs=new Set(rs.map(r=>r.eventId||r.id));const rider=data.riders.find(x=>x.name.toLowerCase()===name.toLowerCase());return {name,country:rider?.country||rs.find(x=>x.country)?.country||"Non renseigné",points,wins,podiums,contests:evs.size,source:"validated"}});
+ 
+ arr=arr.filter(r=>(scope==="all"||r.country===scope)&&r.name.toLowerCase().includes(q)).sort((a,b)=>b.points-a.points||b.wins-a.wins||b.podiums-a.podiums);
+ $("rankList").innerHTML=arr.map((r,i)=>`<div class="item"><div class="rank">${i+1}</div><div class="grow"><b>${esc(r.name)}</b><span class="muted small">${esc(r.country)} · ${r.points} pts · ${r.podiums} podiums · ${r.contests??"—"} concours</span></div><div class="rating">${r.source==="demo"?"Démo":""}</div></div>`).join("")||"<p class='muted'>Aucun compétiteur pour ce filtre.</p>";
+ const tag=document.querySelector('#rank .tag');if(tag)tag.textContent=valid.length?"Résultats publiés / validés":"Aucun résultat saisi";
+ const note=document.querySelector("#rank .muted.small");
+ if(note)note.textContent="Classement calculé à partir des résultats saisis et des archives publiées.";
+}
+function eventDateLabel(date){return date?new Date(date+"T12:00:00").toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long",year:"numeric"}):"Date à confirmer";}
+function eventCountdown(date){if(!date)return "Date à confirmer";const now=new Date();now.setHours(0,0,0,0);const d=new Date(date+"T00:00:00");const days=Math.ceil((d-now)/86400000);return days<0?"Événement passé":days===0?"Aujourd'hui":days===1?"Demain":"Dans "+days+" jours";}
+function eventCard(e,upcoming){const deadline=e.deadline?`<div class="event-meta"><span>Clôture des inscriptions</span><b>${eventDateLabel(e.deadline)}</b></div>`:"";const disciplines=e.disciplines||e.category||"Disciplines à préciser";return `<article class="event event-rich"><div class="event-card-top"><span class="tag ${e.status==="Confirmé"?"green":"gold"}">${esc(e.status||"À confirmer")}</span><span class="event-countdown">${upcoming?eventCountdown(e.date):"Archive"}</span></div><h3>${esc(e.name)}</h3><div class="event-date">${eventDateLabel(e.date)}</div><div class="event-place">📍 ${esc(e.venue||e.city||"Lieu à confirmer")} · ${esc(e.country||"Pays à confirmer")}</div><div class="event-meta"><span>Organisateur</span><b>${esc(e.organizer||"À renseigner")}</b></div><div class="event-meta"><span>Disciplines</span><b>${esc(disciplines)}</b></div>${deadline}<div class="event-meta"><span>Compétiteurs inscrits</span><b>${(e.entries||[]).length}</b></div>${e.notes?`<p class="event-notes">${esc(e.notes)}</p>`:""}<div class="event-card-actions">${e.url?`<a class="event-link" href="${esc(e.url)}" target="_blank" rel="noopener">Infos / inscription ↗</a>`:"<span class='muted small'>Lien d'inscription non renseigné</span>"}<button class="btn ghost" onclick="openEventManagement('${esc(e.id||"")}')">Détails & gestion</button></div></article>`;}
+
+function refreshEventSelectors(){
+ const resultSelect=$("resultEvent"),manageSelect=$("manageEvent");
+ const currentResult=resultSelect?.value||"",currentManage=manageSelect?.value||"";
+ const options=data.events.slice().sort((a,b)=>(a.date||"9999").localeCompare(b.date||"9999")).map(e=>`<option value="${esc(e.id)}">${esc(e.name)} — ${esc(e.date||"date à confirmer")}</option>`).join("");
+ if(resultSelect)resultSelect.innerHTML='<option value="">Résultat hors compétition</option>'+options;
+ if(manageSelect){
+  manageSelect.innerHTML=options||'<option value="">Aucun concours</option>';
+  manageSelect.value=data.events.some(e=>e.id===currentManage)?currentManage:(data.events[0]?.id||"");
+ }
+ if(resultSelect&&data.events.some(e=>e.id===currentResult))resultSelect.value=currentResult;
+}
+function renderEventManagement(){
+ const host=$("eventManagement"),select=$("manageEvent");if(!host||!select)return;
+ const ev=data.events.find(e=>e.id===select.value);
+ if(!ev){host.innerHTML="<p class='muted small'>Choisis ou crée un concours pour gérer les inscriptions.</p>";return;}
+ ev.entries=Array.isArray(ev.entries)?ev.entries:[];
+ const entries=ev.entries.map((entry,i)=>{
+  const name=typeof entry==="string"?entry:(entry.name||"Compétiteur");
+  const category=typeof entry==="string"?"":(entry.category||"");
+  return `<div class="item"><span class="rank">${i+1}</span><span class="grow"><b>${esc(name)}</b><span class="muted small">${esc(category)}</span></span><button type="button" class="sf-action delete" onclick="removeEventEntry('${esc(ev.id)}',${i})">Retirer</button></div>`;
+ }).join("");
+ const results=data.results.filter(r=>r.eventId===ev.id);
+ host.innerHTML=`<div class="event"><h3>${esc(ev.name)}</h3><p class="muted small">${esc(ev.city||"Lieu à confirmer")} · ${esc(ev.country||"Pays à confirmer")} · ${eventDateLabel(ev.date)}</p><div class="row"><b>Inscrits</b><span class="pill">${ev.entries.length}</span></div>${entries||"<p class='muted small'>Aucun compétiteur inscrit pour le moment.</p>"}<div class="row" style="margin-top:14px"><b>Résultats saisis</b><span class="pill">${results.length}</span></div>${results.map(r=>`<div class="item"><span class="grow"><b>${esc(r.name)}</b><span class="muted small">${esc(r.category||"Open")} · ${esc(r.status||"Provisoire")}</span></span><span class="pill">${r.rank?"#"+esc(String(r.rank)):"—"}</span></div>`).join("")||"<p class='muted small'>Aucun résultat saisi pour ce concours.</p>"}</div>`;
+}
+function openEventManagement(id){
+ show("admin");
+ refreshEventSelectors();
+ const select=$("manageEvent");
+ if(select){select.value=id;renderEventManagement();}
+}
+function removeEventEntry(eventId,index){
+ const ev=data.events.find(e=>e.id===eventId);if(!ev||!Array.isArray(ev.entries))return;
+ ev.entries.splice(index,1);if(!save())return;renderEventManagement();renderEvents();
+}
+function validateResult(id){
+ const result=data.results.find(r=>String(r.id)===String(id));if(!result)return;
+ if(!confirm("Valider officiellement ce résultat dans les données locales ? Vérifie d'abord la feuille de résultats."))return;
+ result.status="Validé";result.validatedAt=new Date().toISOString();
+ if(!save())return;render();refreshEventSelectors();
+}
+function deleteResult(id){
+ const result=data.results.find(r=>String(r.id)===String(id));if(!result)return;
+ if(!confirm("Supprimer définitivement ce résultat de cet appareil ?"))return;
+ data.results=data.results.filter(r=>String(r.id)!==String(id));
+ if(!save())return;render();refreshEventSelectors();
+}
+
+function renderEvents(){const s=$("eventScope").value,q=($("eventSearch")?.value||"").trim().toLocaleLowerCase("fr");const arr=data.events.filter(e=>(s==="all"||e.country===s)&&(!q||[e.name,e.country,e.city,e.category,e.date,e.organizer].join(" ").toLocaleLowerCase("fr").includes(q))).sort((a,b)=>(a.date||"9999").localeCompare(b.date||"9999"));const today=new Date().toISOString().slice(0,10);const upcoming=arr.filter(e=>!e.date||e.date>=today);const past=arr.filter(e=>e.date&&e.date<today).reverse();$("upcomingCount").textContent=upcoming.length+" concours";$("upcomingEvents").innerHTML=upcoming.map(e=>eventCard(e,true)).join("")||"<p class='muted'>Aucun concours à venir pour ce filtre. Tu peux en ajouter dans Organisation.</p>";$("pastEvents").innerHTML=past.map(e=>eventCard(e,false)).join("")||"<p class='muted'>Aucune archive pour le moment.</p>";refreshEventSelectors();}
+
+function renderHistory(){const q=($("historySearch")?.value||"").toLowerCase();const rows=data.results.filter(r=>r.archiveKey).map(r=>({...r,event:data.events.find(e=>e.id===r.eventId)})).filter(r=>(`${r.event?.name||""} ${r.name} ${r.category}`.toLowerCase()).includes(q)).sort((a,b)=>(b.event?.date||"").localeCompare(a.event?.date||"")||a.category.localeCompare(b.category)||Number(a.rank)-Number(b.rank));$("historyCount").textContent=rows.length+" résultats";const ids=[...new Set(rows.map(r=>r.event?.id))];$("historyResults").innerHTML=ids.map(id=>{const e=rows.find(r=>r.event?.id===id)?.event,rr=rows.filter(r=>r.event?.id===id);return `<section class="panel" style="margin:14px 0;background:#0b0b0b"><div class="row"><h3>${esc(e?.name||"Compétition archivée")}</h3><span class="tag gold">${eventDateLabel(e?.date)}</span></div><p class="small muted">${esc(e?.city||"")} · ${esc(e?.country||"")} · <a class="event-link" href="${esc(e?.url||"https://tondeursdemoutons.fr/")}" target="_blank" rel="noopener">Source du classement ↗</a></p><table class="table"><thead><tr><th>Épreuve / catégorie</th><th>Place</th><th>Compétiteur</th></tr></thead><tbody>${rr.map(r=>`<tr><td>${esc(r.category)}</td><td><b>#${r.rank}</b></td><td>${esc(r.name)}</td></tr>`).join("")}</tbody></table><p class="muted small">${esc(rr[0]?.sourceLabel||"Classement publié")}</p></section>`}).join("")||"<p class='muted'>Aucun résultat ne correspond à cette recherche.</p>";}
+function renderTraining(){const box=$("trainingList");if(box)box.innerHTML="<div class='notice'>Aucune session ATM à venir avec dates et inscription confirmées n’est actuellement publiée dans les sources consultées. Cette rubrique est prête à recevoir les annonces officielles.</div>";}
+$("historySearch")?.addEventListener("input",renderHistory);
+function renderLive(){const rows=data.results.map(r=>{const ev=data.events.find(e=>e.id===r.eventId);const action=r.status==="Validé"?"<span class='muted small'>Verrouillé</span>":`<button class="sf-action validate" onclick="validateResult('${r.id}')">Valider</button> <button class="sf-action delete" onclick="deleteResult('${r.id}')">Supprimer</button>`;return `<tr><td>${esc(ev?.name||"Hors concours")}<br><small>${esc(r.category||"Open")} · ${esc(r.round||"")}</small></td><td>${esc(r.name)}</td><td>${r.time?esc(r.time)+" s":"—"}</td><td>${r.penalty??"—"}</td><td>${r.rank||"—"}</td><td>${r.points||0}</td><td><span class="tag ${r.status==="Validé"?"green":"gold"}">${esc(r.status)}</span></td><td>${action}</td></tr>`}).join("");$("liveTable").innerHTML=`<table class="table"><thead><tr><th>Compétition / catégorie</th><th>Compétiteur</th><th>Temps</th><th>Pénalités</th><th>Place</th><th>Points</th><th>Statut</th><th>Action</th></tr></thead><tbody>${rows||"<tr><td colspan='8'>Aucun résultat enregistré.</td></tr>"}</tbody></table>`}
+function renderPersonalPodium(){
+ const mine=data.results.filter(r=>r.status==="Validé"&&r.name.trim().toLowerCase()===data.profile.name.trim().toLowerCase());
+ const count=rank=>mine.filter(r=>Number(r.rank)===rank).length;
+ const gold=count(1),silver=count(2),bronze=count(3),total=gold+silver+bronze;
+ [["podiumGold",gold],["podiumSilver",silver],["podiumBronze",bronze],["podiumTotal",total],["podiumWins",gold]].forEach(([id,v])=>{if($(id))$(id).textContent=v;});
+ if($("careerPodiumSummary"))$("careerPodiumSummary").innerHTML=`<div class="podium-mini"><span>🥇 ${gold} victoire(s)</span><span>🥈 ${silver} deuxième(s) place(s)</span><span>🥉 ${bronze} troisième(s) place(s)</span></div>`;
+}
+document.querySelectorAll(".sf-main-side [data-page]").forEach(btn=>btn.addEventListener("click",()=>{show(btn.dataset.page);document.querySelectorAll(".sf-main-side [data-page]").forEach(x=>x.classList.toggle("active",x===btn));}));
+function profileStats(){const mine=data.results.filter(r=>r.status==="Validé"&&r.name.trim().toLowerCase()===data.profile.name.trim().toLowerCase());const wins=mine.filter(r=>Number(r.rank)===1).length;const podiums=mine.filter(r=>Number(r.rank)>=1&&Number(r.rank)<=3).length;const points=mine.reduce((sum,r)=>sum+(Number(r.points)||0),0);const times=mine.map(r=>Number(r.time)).filter(v=>Number.isFinite(v)&&v>0);const ranks=mine.map(r=>Number(r.rank)).filter(v=>Number.isFinite(v)&&v>0);return {contests:new Set(mine.map(r=>r.eventId).filter(Boolean)).size,wins,podiums,points,validated:mine.length,bestRank:ranks.length?Math.min(...ranks):null,averageTime:times.length?times.reduce((a,b)=>a+b,0)/times.length:null};}
+function renderScoreboard(){const s=profileStats();if($("dashScoreHero"))$("dashScoreHero").innerHTML=`${s.points} <small>POINTS</small>`;if($("bestRank"))$("bestRank").textContent=s.bestRank?("#"+s.bestRank):"—";if($("validatedCount"))$("validatedCount").textContent=s.validated;if($("averageTime"))$("averageTime").textContent=s.averageTime?s.averageTime.toFixed(2)+" s":"—";if($("dashPoints"))$("dashPoints").textContent=s.points;}
+
+function renderProfile(){const st=profileStats();renderPersonalPodium();renderScoreboard();const mine=data.results.filter(r=>r.status==="Validé"&&r.name.trim().toLowerCase()===data.profile.name.trim().toLowerCase());["profileContests","dashContests"].forEach(id=>{if($(id))$(id).textContent=st.contests});["profilePodiums","dashPodiums"].forEach(id=>{if($(id))$(id).textContent=st.podiums});["profileWins","dashWins"].forEach(id=>{if($(id))$(id).textContent=st.wins});if($("profileName"))$("profileName").textContent=data.profile.name;fillPersonalProfileForm();renderSeasonProgress(mine);}
+
+
+
+
+
+// V5.0 — progression saisonnière interactive (filtres réellement cliquables).
+let selectedProgressSeason = "all";
+function renderSeasonProgress(mine){
+ const host=$("seasonProgress"); if(!host)return;
+ const years=[...new Set(mine.map(r=>eventSeason(r)).filter(Boolean))].sort().reverse();
+ if(!years.length){
+  host.innerHTML="<p class='muted small'>Aucune saison personnelle validée pour le moment. Les saisons apparaîtront ici dès qu’un résultat sera validé.</p>";
+  return;
+ }
+ if(selectedProgressSeason!=="all"&&!years.includes(selectedProgressSeason))selectedProgressSeason="all";
+ const controls=[{value:"all",label:"Toutes"}].concat(years.map(y=>({value:y,label:y})));
+ const chosen=selectedProgressSeason==="all"?mine:mine.filter(r=>eventSeason(r)===selectedProgressSeason);
+ const points=chosen.reduce((n,r)=>n+(Number(r.points)||0),0);
+ const podiums=chosen.filter(r=>Number(r.rank)>=1&&Number(r.rank)<=3).length;
+ const wins=chosen.filter(r=>Number(r.rank)===1).length;
+ const contests=new Set(chosen.map(r=>r.eventId||r.id)).size;
+ const maxPoints=Math.max(1,...years.map(y=>mine.filter(r=>eventSeason(r)===y).reduce((n,r)=>n+(Number(r.points)||0),0)));
+ const bars=years.map(y=>{
+  const rs=mine.filter(r=>eventSeason(r)===y);
+  const total=rs.reduce((n,r)=>n+(Number(r.points)||0),0);
+  const width=Math.max(2,Math.round(total/maxPoints*100));
+  return `<div class="sf-progress-year"><div class="sf-progress-line"><b>${y}</b><span>${total} pts · ${rs.length} résultat(s)</span></div><div class="sf-progress-track"><i style="width:${width}%"></i></div></div>`;
+ }).join("");
+ const rows=chosen.slice().sort((a,b)=>(eventSeason(b)||"").localeCompare(eventSeason(a)||"")||(Number(a.rank)||999)-(Number(b.rank)||999)).map(r=>{
+  const ev=data.events.find(e=>e.id===r.eventId);
+  return `<div class="item"><span class="grow"><b>${esc(ev?.name||"Concours hors calendrier")}</b><span class="muted small">${esc(eventSeason(r)||"Saison inconnue")} · ${esc(r.category||"Open")}</span></span><span class="pill">${r.rank?"#"+esc(String(r.rank)):"Place —"} · ${Number(r.points)||0} pts</span></div>`;
+ }).join("");
+ host.innerHTML=`<div class="sf-progress-filters" role="group" aria-label="Filtrer la progression par saison">${controls.map(c=>`<button type="button" class="sf-progress-filter ${selectedProgressSeason===c.value?"active":""}" data-progress-season="${c.value}">${c.label}</button>`).join("")}</div>
+ <div class="sf-progress-stats"><div><b>${contests}</b><span>concours</span></div><div><b>${podiums}</b><span>podiums</span></div><div><b>${wins}</b><span>victoires</span></div><div><b>${points}</b><span>points</span></div></div>
+ <div class="sf-progress-chart">${bars}</div><h3 class="sf-progress-subtitle">Résultats ${selectedProgressSeason==="all"?"toutes saisons":"— "+selectedProgressSeason}</h3>${rows||"<p class='muted small'>Aucun résultat pour cette saison.</p>"}`;
+}
+document.addEventListener("click",ev=>{
+ const btn=ev.target.closest("[data-progress-season]");
+ if(!btn)return;
+ selectedProgressSeason=btn.getAttribute("data-progress-season")||"all";
+ renderProfile();
+});
+
+// V4.9 — création et mise à jour du profil personnel local.
+function fillPersonalProfileForm(){
+ const p=data.profile||{};
+ if($("myProfileName"))$("myProfileName").value=p.name||"";
+ if($("myProfileCountry"))$("myProfileCountry").value=p.country||"France";
+ if($("myProfileDepartment"))$("myProfileDepartment").value=p.department||"";
+ if($("myProfileClub"))$("myProfileClub").value=p.club||"";
+}
+function createPersonalProfile(){
+ const name=($("myProfileName")?.value||"").trim();
+ const country=($("myProfileCountry")?.value||"").trim();
+ const department=($("myProfileDepartment")?.value||"").trim();
+ const club=($("myProfileClub")?.value||"").trim();
+ const msg=$("personalProfileMessage");
+ if(!name||!country){if(msg)msg.textContent="Renseigne au minimum ton nom et ton pays.";return;}
+ const oldName=String(data.profile?.name||"").trim();
+ data.profile={...(data.profile||{}),name,country,department,club};
+ let rider=data.riders.find(r=>String(r.name||"").trim().toLocaleLowerCase("fr")===name.toLocaleLowerCase("fr"));
+ if(!rider){rider={id:uid(),name,country,department,club,source:"Profil personnel créé dans Shearing France",events:[]};data.riders.push(rider);}
+ else{rider.country=country;rider.department=department;rider.club=club;rider.source=rider.source||"Profil personnel créé dans Shearing France";}
+ if(oldName&&oldName.toLocaleLowerCase("fr")!==name.toLocaleLowerCase("fr")){
+   const previous=data.riders.find(r=>String(r.name||"").trim().toLocaleLowerCase("fr")===oldName.toLocaleLowerCase("fr"));
+   if(previous&&previous.source==="Profil personnel créé dans Shearing France")previous.isFormerLocalProfile=true;
+ }
+ if(!save())return;
+ render();
+ if(msg)msg.textContent="✓ Ton profil est enregistré et ajouté à l'annuaire de cet appareil.";
+}
+$("createPersonalProfile")?.addEventListener("click",createPersonalProfile);
+// V4.8 — migration durable des archives : fusion idempotente avec les données locales.
+(function persistPublicArchive(){
+  data.schemaVersion=4;
+  data.publicArchiveVersion="4.8";
+  data.publicArchiveUpdatedAt="2026-11-10";
+  // Reconstitue l'index des compétiteurs à partir de chaque résultat, sans écraser les profils existants.
+  for(const result of (data.results||[])){
+    if(!result.name) continue;
+    let rider=data.riders.find(x=>String(x.name||"").trim().toLocaleLowerCase("fr")===String(result.name).trim().toLocaleLowerCase("fr"));
+    if(!rider){
+      rider={id:uid(),name:result.name,country:result.country||"À confirmer",source:"Résultat de compétition archivé",events:[]};
+      data.riders.push(rider);
+    }
+    const event=data.events.find(e=>e.id===result.eventId);
+    if(event){rider.events=rider.events||[];if(!rider.events.includes(event.name))rider.events.push(event.name);}
+  }
+  // Un identifiant d'événement stable est conservé; les données ATM et historiques sont fusionnées sans doublons.
+  const seen=new Set();
+  data.results=(data.results||[]).filter(r=>{
+    const event=data.events.find(e=>e.id===r.eventId);
+    const key=r.archiveKey||[event?.archiveKey||event?.name||"",r.category||"",String(r.name||"").trim().toLocaleLowerCase("fr"),r.rank||"",r.round||""].join("|");
+    if(seen.has(key))return false;seen.add(key);return true;
+  });
+  save();
+})();
+
+function render(){renderHome();renderRank();renderEvents();renderHistory();renderTraining();renderLive();renderProfile();$("dashName").textContent=data.profile.name;}
+$("competitorSearch")?.addEventListener("input",renderCompetitorSearch); $("rankSearch").oninput=renderRank;$("rankScope").onchange=renderRank;$("eventScope").onchange=renderEvents;$("eventSearch")?.addEventListener("input",renderEvents);$("historySearch")?.addEventListener("input",renderHistory);
+
+// V6.3 — import photo de feuille de résultats avec OCR, contrôle et création locale.
+let ocrImageFile=null;
+let ocrDraftRows=[];
+function ocrSetStatus(message){const el=$("ocrProgress");if(el)el.textContent=message;}
+function ocrLoadTesseract(){
+ return new Promise((resolve,reject)=>{
+  if(window.Tesseract)return resolve(window.Tesseract);
+  const script=document.createElement("script");
+  script.src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js";
+  script.onload=()=>window.Tesseract?resolve(window.Tesseract):reject(new Error("La bibliothèque OCR n'a pas pu être chargée."));
+  script.onerror=()=>reject(new Error("Impossible de charger le moteur OCR. Vérifie la connexion Internet."));
+  document.head.appendChild(script);
+ });
+}
+$("sheetFile").onchange=e=>{
+ const f=e.target.files?.[0];if(!f)return;
+ if(!f.type.startsWith("image/")){ocrSetStatus("Choisis un fichier image (JPG ou PNG).");return;}
+ ocrImageFile=f;
+ const u=URL.createObjectURL(f);
+ $("sheetPreview").src=u;$("sheetPreview").classList.remove("hidden");
+ $("ocrFileName").textContent=f.name+" · "+Math.round(f.size/1024)+" Ko";
+ ocrSetStatus("Photo prête. Renseigne le concours puis clique sur « Lire la photo ».");
+};
+function ocrParseTime(token){
+ if(!token)return null;
+ const t=String(token).trim().replace(",",".");
+ if(/^\d{1,2}:\d{1,2}(?:\.\d+)?$/.test(t)){const [m,s]=t.split(":");return Number(m)*60+Number(s);}
+ if(/^\d{2,4}(?:\.\d+)?$/.test(t)){const n=Number(t);return n>0?n:null;}
+ return null;
+}
+function ocrParseLines(text){
+ const lines=String(text||"").split(/\r?\n/).map(x=>x.replace(/[|]/g," ").replace(/\s+/g," ").trim()).filter(Boolean);
+ const rows=[];
+ for(const line of lines){
+  if(/^(?:page|date|competition|concours|cat[ée]gorie|classement|rank|name|nom|time|temps|points|penalit[ée]s)\b/i.test(line))continue;
+  let m=line.match(/^\s*(\d{1,3})\s*[.)\-:]?\s+(.+)$/);
+  if(!m)continue;
+  let rank=Number(m[1]),rest=m[2].trim();
+  if(rank<1||rank>300)continue;
+  let time=null,penalty=null,points=null;
+  const timeMatch=rest.match(/\b\d{1,2}:\d{1,2}(?:[.,]\d+)?\b|\b\d{2,4}(?:[.,]\d+)?\b/);
+  if(timeMatch){
+   time=ocrParseTime(timeMatch[0]);
+   const before=rest.slice(0,timeMatch.index).trim();
+   const after=rest.slice(timeMatch.index+timeMatch[0].length).trim();
+   rest=(before+" "+after).trim();
+   const nums=after.match(/\d+(?:[.,]\d+)?/g)||[];
+   if(nums.length>=1)penalty=Number(nums[0].replace(",","."));
+   if(nums.length>=2)points=Number(nums[1].replace(",","."));
+  }
+  rest=rest.replace(/\s{2,}/g," ").replace(/^[|:;,\-]+|[|:;,\-]+$/g,"").trim();
+  // Ignore rows with no credible competitor name.
+  if(rest.length<2||/^(total|somme|moyenne|judge|juge|shearer|tondeur)$/i.test(rest))continue;
+  rows.push({rank,name:rest,time,penalty,points});
+ }
+ // Do not silently duplicate a repeated OCR line.
+ const seen=new Set();
+ return rows.filter(r=>{const k=r.rank+"|"+r.name.toLocaleLowerCase("fr");if(seen.has(k))return false;seen.add(k);return true;});
+}
+function renderOcrRows(){
+ const host=$("ocrRows");if(!host)return;
+ $("ocrRowCount").textContent=ocrDraftRows.length+" ligne"+(ocrDraftRows.length>1?"s":"");
+ if(!ocrDraftRows.length){host.innerHTML="<p class='muted small'>Aucune ligne reconnue. Corrige le texte puis clique sur « Recréer les lignes depuis le texte ».</p>";return;}
+ host.innerHTML=`<div class="sf-ocr-edit-head"><span>Place</span><span>Compétiteur</span><span>Temps (s)</span><span>Pénalités</span><span>Points</span><span></span></div>`+ocrDraftRows.map((r,i)=>`<div class="sf-ocr-edit-row" data-ocr-index="${i}">
+ <input aria-label="Place ligne ${i+1}" type="number" min="1" value="${r.rank??""}" data-ocr-field="rank">
+ <input aria-label="Nom compétiteur ligne ${i+1}" value="${esc(r.name||"")}" data-ocr-field="name">
+ <input aria-label="Temps secondes ligne ${i+1}" type="number" min="0" step="0.01" value="${r.time??""}" data-ocr-field="time" placeholder="—">
+ <input aria-label="Pénalités ligne ${i+1}" type="number" min="0" step="0.01" value="${r.penalty??""}" data-ocr-field="penalty" placeholder="—">
+ <input aria-label="Points ligne ${i+1}" type="number" min="0" step="0.01" value="${r.points??""}" data-ocr-field="points" placeholder="—">
+ <button type="button" class="sf-action delete" data-ocr-remove="${i}" aria-label="Supprimer la ligne">×</button>
+ </div>`).join("");
+}
+$("ocrRows")?.addEventListener("input",e=>{
+ const field=e.target.closest("[data-ocr-field]");if(!field)return;
+ const row=field.closest("[data-ocr-index]"),i=Number(row.dataset.ocrIndex),key=field.dataset.ocrField;
+ ocrDraftRows[i][key]=key==="name"?field.value:(field.value===""?null:Number(field.value));
+});
+$("ocrRows")?.addEventListener("click",e=>{
+ const b=e.target.closest("[data-ocr-remove]");if(!b)return;
+ ocrDraftRows.splice(Number(b.dataset.ocrRemove),1);renderOcrRows();
+});
+$("parseOcrText")?.addEventListener("click",()=>{
+ ocrDraftRows=ocrParseLines($("ocrRawText").value);renderOcrRows();
+ ocrSetStatus(ocrDraftRows.length+" ligne(s) candidate(s) détectée(s). Vérifie-les avant l'enregistrement.");
+});
+$("runOcr")?.addEventListener("click",async()=>{
+ if(!ocrImageFile){ocrSetStatus("Ajoute d'abord une photo de feuille de résultats.");return;}
+ const btn=$("runOcr");btn.disabled=true;btn.textContent="Lecture en cours…";
+ try{
+  ocrSetStatus("Chargement du moteur de reconnaissance…");const T=await ocrLoadTesseract();
+  const result=await T.recognize(ocrImageFile,"fra+eng",{logger:m=>{
+   if(m.status==="recognizing text")ocrSetStatus("Lecture de la photo : "+Math.round((m.progress||0)*100)+" %");
+   else if(m.status)ocrSetStatus("OCR : "+m.status);
+  }});
+  $("ocrRawText").value=result.data.text||"";
+  ocrDraftRows=ocrParseLines(result.data.text||"");renderOcrRows();
+  ocrSetStatus("Lecture terminée. "+ocrDraftRows.length+" ligne(s) candidate(s). Corrige les erreurs éventuelles.");
+  if(!ocrDraftRows.length)ocrSetStatus("Texte lu, mais les lignes n'ont pas été reconnues automatiquement. Corrige le texte puis utilise « Recréer les lignes ».");
+ }catch(err){console.error(err);ocrSetStatus("Erreur OCR : "+(err.message||"lecture impossible")+". Tu peux coller le texte manuellement dans la zone ci-dessus.");}
+ finally{btn.disabled=false;btn.textContent="Lire la photo";}
+});
+function ocrNormalizeName(s){return String(s||"").trim().toLocaleLowerCase("fr").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/\s+/g," ");}
+$("saveOcrImport")?.addEventListener("click",()=>{
+ const msg=$("ocrSaveMessage");msg.textContent="";
+ const eventName=$("ocrEventName").value.trim(),country=$("ocrEventCountry").value.trim()||"France",date=$("ocrEventDate").value,city=$("ocrEventCity").value.trim();
+ if(!eventName){msg.innerHTML="<span class='notice'>Indique le nom du concours.</span>";return;}
+ const clean=ocrDraftRows.map(r=>({...r,name:String(r.name||"").trim()})).filter(r=>r.name);
+ if(!clean.length){msg.innerHTML="<span class='notice'>Aucun compétiteur à enregistrer. Lance la lecture ou ajoute les lignes.</span>";return;}
+ const category=$("ocrCategory").value,round=$("ocrRound").value.trim();
+ // Rapprochement souple : même nom + même date, et ville compatible si les deux sont connues.
+ // Si la date manque, on exige aussi une ville identique pour éviter de fusionner deux éditions.
+ let ev=data.events.find(e=>{
+  if(ocrNormalizeName(e.name)!==ocrNormalizeName(eventName))return false;
+  if(date&&e.date&&e.date!==date)return false;
+  if(city&&e.city&&ocrNormalizeName(e.city)!==ocrNormalizeName(city))return false;
+  if(!date&&!city)return false;
+  return true;
+ });
+ let eventCreated=false,eventFieldsCompleted=0;
+ if(!ev){
+  ev={id:uid(),name:eventName,country,date:date||"",city,organizer:"",venue:"",category,status:"À confirmer",entries:[],source:"Import photo OCR — à vérifier"};
+  data.events.push(ev);eventCreated=true;
+ }else{
+  // Complète les champs vides du concours sans écraser les informations déjà saisies.
+  for(const [k,v] of Object.entries({date,city,country,category})){
+   if(v&&(!ev[k]||String(ev[k]).trim()==="")){ev[k]=v;eventFieldsCompleted++;}
+  }
+  ev.entries=ev.entries||[];
+ }
+ let newRiders=0,addedResults=0,completedResults=0,duplicates=0,conflicts=0;
+ for(const r of clean){
+  let rider=data.riders.find(x=>ocrNormalizeName(x.name)===ocrNormalizeName(r.name));
+  if(!rider){rider={id:uid(),name:r.name,country,source:"Compétiteur créé depuis une feuille importée — identité à confirmer",events:[]};data.riders.push(rider);newRiders++;}
+  else if(!rider.country&&country)rider.country=country;
+  rider.events=rider.events||[];if(!rider.events.includes(ev.name))rider.events.push(ev.name);
+  if(!ev.entries.some(x=>ocrNormalizeName(typeof x==="string"?x:x.name)===ocrNormalizeName(r.name)))ev.entries.push({name:r.name,category});
+  const candidate={eventId:ev.id,category,round,name:r.name};
+  const existing=data.results.find(x=>resultIdentity(x)===resultIdentity(candidate));
+  if(existing){
+   // Fusion non destructive : on renseigne les trous, mais on ne remplace jamais une donnée existante.
+   let changed=false;
+   for(const k of ["time","penalty","rank","points"]){
+    const incoming=r[k];
+    const empty=existing[k]===null||existing[k]===undefined||existing[k]==="";
+    const incomingPresent=incoming!==null&&incoming!==undefined&&incoming!=="";
+    if(empty&&incomingPresent){existing[k]=incoming;changed=true;}
+    else if(!empty&&incomingPresent&&String(existing[k])!==String(incoming))conflicts++;
+   }
+   if(changed){
+    completedResults++;
+    existing.mergeNote="Complété par import photo OCR — données existantes conservées en cas de conflit";
+   }else duplicates++;
+   continue;
+  }
+  data.results.push({id:uid(),eventId:ev.id,country,category,round,name:r.name,time:r.time,penalty:r.penalty,rank:r.rank,points:r.points??0,status:"Provisoire",sourceLabel:"Import photo OCR — à vérifier",createdAt:new Date().toISOString()});
+  addedResults++;
+ }
+ if(!save())return;
+ refreshEventSelectors();render();
+ msg.innerHTML=`<div class="success"><b>Import fusionné sur cet appareil.</b><br>${eventCreated?"Nouveau concours créé. ":"Concours existant retrouvé et complété. "}${eventFieldsCompleted} champ(s) du concours complété(s), ${newRiders} nouveau(x) compétiteur(s), ${addedResults} résultat(s) ajouté(s), ${completedResults} résultat(s) existant(s) complété(s), ${duplicates} ligne(s) déjà complète(s) ignorée(s).${conflicts?` ${conflicts} différence(s) détectée(s) : les données déjà enregistrées ont été conservées.`:""}<br>Les résultats restent provisoires : vérifie-les avant validation. Les données sont enregistrées sur cet appareil uniquement.</div>`;
+});
+
+$("addResult").onclick=()=>{
+ const name=$("resultName").value.trim(),time=Number($("resultTime").value),penalty=Number($("resultPenalty").value||0);
+ const rankRaw=$("resultRank").value.trim(),pointsRaw=$("resultPoints").value.trim();
+ const rank=rankRaw===""?null:Number(rankRaw);
+ if(!name||!Number.isFinite(time)||time<=0||!Number.isFinite(penalty)||penalty<0||(rank!==null&&(!Number.isInteger(rank)||rank<1))){
+  $("resultMsg").innerHTML="<div class='notice'>Vérifie le nom, le temps, les pénalités et la place. Le temps doit être positif et la place un entier positif.</div>";return;
+ }
+ const eventId=$("resultEvent").value||null,category=$("resultCategory").value,round=$("resultRound").value.trim();
+ const candidate={eventId,category,round,name};
+ if(data.results.some(r=>resultIdentity(r)===resultIdentity(candidate))){
+  $("resultMsg").innerHTML="<div class='notice'>Un résultat existe déjà pour ce compétiteur, cette compétition, cette catégorie et ce tour. Vérifie avant d'ajouter un doublon.</div>";return;
+ }
+ const ev=data.events.find(e=>e.id===eventId),scale={1:100,2:80,3:65,4:50,5:40,6:30,7:20,8:10};
+ const points=pointsRaw!==""?Number(pointsRaw):(scale[rank]||0);
+ if(!Number.isFinite(points)||points<0){$("resultMsg").innerHTML="<div class='notice'>Les points doivent être un nombre positif ou nul.</div>";return;}
+ data.results.push({id:uid(),eventId,country:ev?.country||data.profile.country||"France",category,round,judge:$("resultJudge").value.trim(),name,time,penalty,status:"Provisoire",rank,points,createdAt:new Date().toISOString()});
+ if(!save())return;refreshEventSelectors();render();$("resultMsg").innerHTML="<div class='success'>Résultat enregistré en provisoire. Il apparaîtra au classement après validation.</div>";
+ ["resultName","resultTime","resultPenalty","resultRank","resultPoints","resultRound","resultJudge"].forEach(id=>$(id).value="");
+}
+$("createEvent").onclick=()=>{let name=$("newEventName").value.trim(),country=$("newEventCountry").value.trim(),date=$("newEventDate").value,city=$("newEventCity").value.trim();if(!name||!country||!date){alert("Nom, pays et date sont obligatoires.");return}
+ if(data.events.some(e=>e.name.trim().toLowerCase()===name.toLowerCase()&&e.date===date&&String(e.city||"").trim().toLowerCase()===city.toLowerCase())){alert("Ce concours semble déjà exister à cette date et dans cette ville.");return}
+ data.events.push({id:uid(),name,country,date,city,organizer:$("newEventOrganizer").value.trim(),venue:$("newEventVenue").value.trim(),deadline:$("newEventDeadline").value,disciplines:$("newEventDisciplines").value.trim(),url:$("newEventUrl").value.trim(),notes:$("newEventNotes").value.trim(),status:"À confirmer",category:$("newEventCategory").value,entries:[]});save();render();refreshEventSelectors();$("manageEvent").value=data.events[data.events.length-1].id;renderEventManagement();alert("Concours créé. Tu peux maintenant gérer ses inscrits.");["newEventName","newEventCountry","newEventDate","newEventCity","newEventOrganizer","newEventVenue","newEventDeadline","newEventDisciplines","newEventUrl","newEventNotes"].forEach(id=>$(id).value="")};
+$("exportData").onclick=()=>{let blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="shearing-france-donnees-v1.json";a.click();URL.revokeObjectURL(a.href)};
+
+
+$("manageEvent")?.addEventListener("change",renderEventManagement);
+$("addEntry")?.addEventListener("click",()=>{
+ const ev=data.events.find(e=>e.id===$("manageEvent")?.value);
+ const name=($("newEntry")?.value||"").trim();
+ const category=($("newEntryCategory")?.value||"").trim();
+ if(!ev){alert("Sélectionne d'abord un concours.");return;}
+ if(!name){alert("Renseigne le nom du compétiteur.");return;}
+ ev.entries=Array.isArray(ev.entries)?ev.entries:[];
+ if(ev.entries.some(x=>(typeof x==="string"?x:x.name||"").trim().toLocaleLowerCase("fr")===name.toLocaleLowerCase("fr"))){alert("Ce compétiteur est déjà inscrit à ce concours.");return;}
+ ev.entries.push({name,category});
+ if(!save())return;
+ $("newEntry").value="";$("newEntryCategory").value="";
+ renderEventManagement();renderEvents();
+});
+
+refreshEventSelectors();
+renderEventManagement();
+render();
+save();
+</script>
+<script>
+(function(){
+ const $=id=>document.getElementById(id);
+ const rp={1:100,2:80,3:65,4:50,5:40,6:30,7:20,8:10};
+ const add=$('addResult'); if(add) add.addEventListener('click',()=>{const rank=Number($('resultRank').value);const pts=$('resultPoints');if(!pts.value&&rp[rank])pts.value=rp[rank];});
+ const cat=$('rankCategory');if(cat)cat.addEventListener('change',()=>{if(typeof renderRank==='function')renderRank();});const season=$('rankSeason');if(season){const years=[...new Set((data.results||[]).filter(r=>r.status==='Validé').map(r=>String(r.createdAt||'').slice(0,4)).filter(y=>/^\d{4}$/.test(y)))].sort().reverse();season.innerHTML='<option value="all">Toutes saisons</option>'+years.map(y=>`<option value="${y}">${y}</option>`).join('');season.addEventListener('change',()=>{if(typeof renderRank==='function')renderRank();});}
+ const imp=$('importData');if(imp)imp.addEventListener('change',async e=>{const f=e.target.files?.[0];if(!f)return;try{const incoming=JSON.parse(await f.text());if(!incoming||!Array.isArray(incoming.events)||!Array.isArray(incoming.results)||!incoming.profile)throw new Error('Format de sauvegarde invalide');if(!confirm('Remplacer les données locales actuelles par cette sauvegarde ?'))return;localStorage.setItem('sf_v1',JSON.stringify(incoming));location.reload();}catch(err){alert('Impossible de restaurer cette sauvegarde : '+err.message);}finally{imp.value='';}});
+ const footer=document.querySelector('.footer');if(footer)footer.textContent='SHEARING FRANCE · Version 6.2 · Mise à jour automatique en ligne';
+})();
+</script>
+
+<script>
+/* Navigation fallback: keeps the menu functional if an earlier page script fails. */
+(function(){
+  function activatePage(page){
+    var target=document.getElementById(page);
+    if(!target || !target.classList.contains('page')) return;
+    document.querySelectorAll('.page').forEach(function(p){p.classList.toggle('hidden',p!==target);});
+    document.querySelectorAll('.nav [data-page]').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-page')===page);});
+    try{
+      if(page==='events' && typeof renderEvents==='function') renderEvents();
+      if(page==='history' && typeof renderHistory==='function') renderHistory();
+      if(page==='training' && typeof renderTraining==='function') renderTraining();
+      if(page==='rank' && typeof renderRank==='function') renderRank();
+      if(page==='live' && typeof renderLive==='function') renderLive();
+      if(page==='profile' && typeof renderProfile==='function') renderProfile();
+    }catch(err){console.error('Erreur d’affichage de la rubrique '+page,err);}
+    window.scrollTo(0,0);
+  }
+  document.addEventListener('click',function(ev){
+    var btn=ev.target.closest('button[data-page]');
+    if(!btn) return;
+    ev.preventDefault();
+    activatePage(btn.getAttribute('data-page'));
+  },true);
+  window.sfOpenPage=activatePage;
+})();
+</script>
+
+<script>
+(function(){
+  const isHosted=/^https?:$/.test(location.protocol);
+  if(!isHosted){
+    console.info("Shearing France : les mises à jour automatiques seront actives après mise en ligne sur une adresse HTTPS.");
+    return;
+  }
+  if(!("serviceWorker" in navigator)) return;
+  let hadController=!!navigator.serviceWorker.controller;
+  navigator.serviceWorker.register("./sw.js").then(reg=>{
+    reg.update().catch(()=>{});
+    setInterval(()=>reg.update().catch(()=>{}),5*60*1000);
+    reg.addEventListener("updatefound",()=>{
+      const worker=reg.installing;
+      if(!worker)return;
+      worker.addEventListener("statechange",()=>{
+        if(worker.state==="installed" && navigator.serviceWorker.controller){
+          const banner=document.getElementById("updateBanner");
+          if(banner)banner.hidden=false;
+        }
+      });
+    });
+  }).catch(err=>console.warn("Mise à jour indisponible",err));
+  navigator.serviceWorker.addEventListener("controllerchange",()=>{
+    if(hadController){location.reload();}
+    hadController=true;
+  });
+})();
+</script>
+<div id="updateBanner" hidden style="position:fixed;z-index:2000;bottom:16px;left:50%;transform:translateX(-50%);background:#244638;color:white;padding:12px 16px;border-radius:12px;box-shadow:0 8px 30px #0003">
+  Une mise à jour est prête. <button type="button" onclick="location.reload()" style="margin-left:8px;background:#e8d8b7;color:#244638;border:0;border-radius:8px;padding:7px 10px;font-weight:800">Actualiser</button>
+</div>
+
+</body></html>
